@@ -111,7 +111,7 @@ load("ext://grafana", "grafana")
 def load_grafana():
     # The user/pass that you will login to Grafana with
     grafana_admin_user_pass = os.getenv("GRAFANA_ADMIN_USER_PASS", "oncall")
-    grafana_version = os.getenv("GRAFANA_VERSION", "latest")
+    grafana_version = os.getenv("GRAFANA_VERSION", "11.3.2")
 
     if 'plugin' in profiles:
         # Generate and load the grafana deploy yaml
