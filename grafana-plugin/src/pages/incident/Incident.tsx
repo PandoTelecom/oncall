@@ -133,6 +133,7 @@ class _IncidentPage extends React.Component<IncidentPageProps, IncidentPageState
       query: { cursor, start, perpage },
       router: {
         params: { id },
+        navigate
       },
     } = this.props;
 
@@ -471,6 +472,7 @@ class _IncidentPage extends React.Component<IncidentPageProps, IncidentPageState
                 onAcknowledge: this.getOnActionButtonClick(incident.pk, AlertAction.Acknowledge),
                 onSilence: this.getSilenceClickHandler(incident),
                 onUnsilence: this.getUnsilenceClickHandler(incident.pk),
+                onDelete: this.getDeleteClickHandler(incident.pk),
               })}
               <ExtensionLinkDropdown
                 alertGroup={incident}
@@ -725,6 +727,19 @@ class _IncidentPage extends React.Component<IncidentPageProps, IncidentPageState
       return store.alertGroupStore.doIncidentAction(incidentId, AlertAction.unSilence);
     };
   };
+
+  getDeleteClickHandler = (incidentId: ApiSchemas['AlertGroup']['pk']) => {
+    const { store } = this.props;
+
+    return async (event: any) => {
+      event.stopPropagation();
+
+      await store.alertGroupStore.doIncidentAction(incidentId, AlertAction.delete);
+
+      this.props.router.navigate(`${PLUGIN_ROOT}/alert-groups/`, { replace: true });
+    };
+  };
+
 
   getIncidentDatetimeReference = (incident: ApiSchemas['AlertGroup'] | GroupedAlert): string => {
     let datetimeReference;

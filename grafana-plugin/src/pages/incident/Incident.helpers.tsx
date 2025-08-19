@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { css, cx } from '@emotion/css';
 import { Button, IconButton, Tooltip, Stack, useStyles2 } from '@grafana/ui';
@@ -15,6 +15,7 @@ import { IncidentStatus } from 'models/alertgroup/alertgroup.types';
 import { ApiSchemas } from 'network/oncall-api/api.types';
 import { SilenceSelect } from 'pages/incidents/parts/SilenceSelect';
 import { move } from 'state/helpers';
+import { Modal } from 'components/Modal/Modal';
 
 export const IncidentRelatedUsers = (props: { incident: ApiSchemas['AlertGroup']; isFull: boolean }) => {
   const { incident, isFull } = props;
@@ -114,7 +115,7 @@ export function getActionButtons(
   callbacks: { [key: string]: any },
   allSecondary = false
 ) {
-  const { onResolve, onUnresolve, onAcknowledge, onUnacknowledge, onSilence, onUnsilence } = callbacks;
+  const { onResolve, onUnresolve, onAcknowledge, onUnacknowledge, onSilence, onUnsilence, onDelete } = callbacks;
 
   if (incident?.root_alert_group) {
     return null;
@@ -166,6 +167,34 @@ export function getActionButtons(
     </WithPermissionControlTooltip>
   );
 
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const deleteButton = (
+    <WithPermissionControlTooltip key="delete" userAction={UserActions.AlertGroupsWrite}>
+      <>
+        <Button disabled={incident?.loading} variant="destructive" onClick={() => setIsOpen(true)}>
+          Delete
+        </Button>
+        {isOpen && (
+          <Modal 
+            isOpen={isOpen} 
+            width="430px" 
+            onDismiss={() => setIsOpen(false)}
+          >
+            <h2>Delete Alert Group</h2>
+            <p>This alert group will be <strong>permanently deleted</strong> and <strong>cannot be recovered</strong>. Are you sure you want to delete this alert group?</p>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 10, marginTop: 20 }}>
+              <Button onClick={() => setIsOpen(false)}>Cancel</Button>
+              <Button variant="destructive" onClick={onDelete}>
+                Confirm Delete
+              </Button>
+            </div>
+          </Modal>
+        )}
+      </>
+    </WithPermissionControlTooltip>
+  );
+
   if (incident?.status === undefined) {
     // to render all buttons if status unknown
     return [acknowledgeButton, unacknowledgeButton, resolveButton, unresolveButton, silenceButton, unsilenceButton];
@@ -186,6 +215,7 @@ export function getActionButtons(
   } else {
     buttons.push(unresolveButton);
   }
+  buttons.push(deleteButton);
 
   return <Stack justifyContent="flex-end">{buttons}</Stack>;
 }
