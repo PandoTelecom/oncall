@@ -3,7 +3,7 @@ name: Build and Push OnCall Docker Image
 on:
   push:
     branches:
-      - main
+      - dev
     paths:
       - 'engine/**'
       - '.github/workflows/publish-oncall.yml'
