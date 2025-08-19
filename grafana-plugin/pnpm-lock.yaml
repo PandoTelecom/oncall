@@ -379,6 +379,9 @@ importers:
       webpack-livereload-plugin:
         specifier: ^3.0.2
         version: 3.0.2(webpack@5.94.0)
+      webpack-merge:
+        specifier: ^6.0.1
+        version: 6.0.1
 
 packages:
 
@@ -6373,6 +6376,10 @@ packages:
     resolution: {integrity: sha512-+4zXKdx7UnO+1jaN4l2lHVD+mFvnlZQP/6ljaJVb4SZiwIKeUnrT5l0gkT8z+n4hKpC+jpOv6O9R+gLtag7pSA==}
     engines: {node: '>=10.0.0'}
 
+  webpack-merge@6.0.1:
+    resolution: {integrity: sha512-hXXvrjtx2PLYx4qruKl+kyRSLc52V+cCvMxRjmKwoA+CBbbF5GfIBtR6kCvl0fYGqTUPKB+1ktVmTHqMOzgCBg==}
+    engines: {node: '>=18.0.0'}
+
   webpack-sources@3.2.3:
     resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}
     engines: {node: '>=10.13.0'}
@@ -7037,7 +7044,7 @@ snapshots:
 
   '@grafana/eslint-config@6.0.1':
     dependencies:
-      '@typescript-eslint/eslint-plugin': 5.59.9(@typescript-eslint/parser@5.59.9(eslint@8.42.0)(typescript@4.8.4))(eslint@8.42.0)(typescript@4.8.4)
+      '@typescript-eslint/eslint-plugin': 5.59.9(@typescript-eslint/parser@5.59.9(eslint@8.57.0)(typescript@5.1.6))(eslint@8.42.0)(typescript@4.8.4)
       '@typescript-eslint/parser': 5.59.9(eslint@8.42.0)(typescript@4.8.4)
       eslint: 8.42.0
       eslint-config-prettier: 8.8.0(eslint@8.42.0)
@@ -8248,7 +8255,7 @@ snapshots:
     dependencies:
       '@types/yargs-parser': 21.0.3
 
-  '@typescript-eslint/eslint-plugin@5.59.9(@typescript-eslint/parser@5.59.9(eslint@8.42.0)(typescript@4.8.4))(eslint@8.42.0)(typescript@4.8.4)':
+  '@typescript-eslint/eslint-plugin@5.59.9(@typescript-eslint/parser@5.59.9(eslint@8.57.0)(typescript@5.1.6))(eslint@8.42.0)(typescript@4.8.4)':
     dependencies:
       '@eslint-community/regexpp': 4.11.0
       '@typescript-eslint/parser': 5.59.9(eslint@8.42.0)(typescript@4.8.4)
@@ -13864,6 +13871,12 @@ snapshots:
       - supports-color
 
   webpack-merge@5.10.0:
+    dependencies:
+      clone-deep: 4.0.1
+      flat: 5.0.2
+      wildcard: 2.0.1
+
+  webpack-merge@6.0.1:
     dependencies:
       clone-deep: 4.0.1
       flat: 5.0.2
