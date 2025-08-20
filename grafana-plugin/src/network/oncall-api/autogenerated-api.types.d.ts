@@ -4420,63 +4420,63 @@ export interface operations {
         email?: string;
         /** @description A page number within the paginated result set. */
         page?: number;
-        /** @description * `grafana-oncall-app.alert-groups:direct-paging` - ALERT_GROUPS_DIRECT_PAGING
-         *     * `grafana-oncall-app.alert-groups:read` - ALERT_GROUPS_READ
-         *     * `grafana-oncall-app.alert-groups:write` - ALERT_GROUPS_WRITE
-         *     * `grafana-oncall-app.api-keys:read` - API_KEYS_READ
-         *     * `grafana-oncall-app.api-keys:write` - API_KEYS_WRITE
-         *     * `grafana-oncall-app.chatops:read` - CHATOPS_READ
-         *     * `grafana-oncall-app.chatops:update-settings` - CHATOPS_UPDATE_SETTINGS
-         *     * `grafana-oncall-app.chatops:write` - CHATOPS_WRITE
-         *     * `grafana-oncall-app.escalation-chains:read` - ESCALATION_CHAINS_READ
-         *     * `grafana-oncall-app.escalation-chains:write` - ESCALATION_CHAINS_WRITE
-         *     * `grafana-oncall-app.integrations:read` - INTEGRATIONS_READ
-         *     * `grafana-oncall-app.integrations:test` - INTEGRATIONS_TEST
-         *     * `grafana-oncall-app.integrations:write` - INTEGRATIONS_WRITE
-         *     * `grafana-oncall-app.maintenance:read` - MAINTENANCE_READ
-         *     * `grafana-oncall-app.maintenance:write` - MAINTENANCE_WRITE
-         *     * `grafana-oncall-app.notifications:read` - NOTIFICATIONS_READ
-         *     * `grafana-oncall-app.notification-settings:read` - NOTIFICATION_SETTINGS_READ
-         *     * `grafana-oncall-app.notification-settings:write` - NOTIFICATION_SETTINGS_WRITE
-         *     * `grafana-oncall-app.other-settings:read` - OTHER_SETTINGS_READ
-         *     * `grafana-oncall-app.other-settings:write` - OTHER_SETTINGS_WRITE
-         *     * `grafana-oncall-app.outgoing-webhooks:read` - OUTGOING_WEBHOOKS_READ
-         *     * `grafana-oncall-app.outgoing-webhooks:write` - OUTGOING_WEBHOOKS_WRITE
-         *     * `grafana-oncall-app.schedules:export` - SCHEDULES_EXPORT
-         *     * `grafana-oncall-app.schedules:read` - SCHEDULES_READ
-         *     * `grafana-oncall-app.schedules:write` - SCHEDULES_WRITE
-         *     * `grafana-oncall-app.user-settings:admin` - USER_SETTINGS_ADMIN
-         *     * `grafana-oncall-app.user-settings:read` - USER_SETTINGS_READ
-         *     * `grafana-oncall-app.user-settings:write` - USER_SETTINGS_WRITE */
+        /** @description * `pando-oncall-app.alert-groups:direct-paging` - ALERT_GROUPS_DIRECT_PAGING
+         *     * `pando-oncall-app.alert-groups:read` - ALERT_GROUPS_READ
+         *     * `pando-oncall-app.alert-groups:write` - ALERT_GROUPS_WRITE
+         *     * `pando-oncall-app.api-keys:read` - API_KEYS_READ
+         *     * `pando-oncall-app.api-keys:write` - API_KEYS_WRITE
+         *     * `pando-oncall-app.chatops:read` - CHATOPS_READ
+         *     * `pando-oncall-app.chatops:update-settings` - CHATOPS_UPDATE_SETTINGS
+         *     * `pando-oncall-app.chatops:write` - CHATOPS_WRITE
+         *     * `pando-oncall-app.escalation-chains:read` - ESCALATION_CHAINS_READ
+         *     * `pando-oncall-app.escalation-chains:write` - ESCALATION_CHAINS_WRITE
+         *     * `pando-oncall-app.integrations:read` - INTEGRATIONS_READ
+         *     * `pando-oncall-app.integrations:test` - INTEGRATIONS_TEST
+         *     * `pando-oncall-app.integrations:write` - INTEGRATIONS_WRITE
+         *     * `pando-oncall-app.maintenance:read` - MAINTENANCE_READ
+         *     * `pando-oncall-app.maintenance:write` - MAINTENANCE_WRITE
+         *     * `pando-oncall-app.notifications:read` - NOTIFICATIONS_READ
+         *     * `pando-oncall-app.notification-settings:read` - NOTIFICATION_SETTINGS_READ
+         *     * `pando-oncall-app.notification-settings:write` - NOTIFICATION_SETTINGS_WRITE
+         *     * `pando-oncall-app.other-settings:read` - OTHER_SETTINGS_READ
+         *     * `pando-oncall-app.other-settings:write` - OTHER_SETTINGS_WRITE
+         *     * `pando-oncall-app.outgoing-webhooks:read` - OUTGOING_WEBHOOKS_READ
+         *     * `pando-oncall-app.outgoing-webhooks:write` - OUTGOING_WEBHOOKS_WRITE
+         *     * `pando-oncall-app.schedules:export` - SCHEDULES_EXPORT
+         *     * `pando-oncall-app.schedules:read` - SCHEDULES_READ
+         *     * `pando-oncall-app.schedules:write` - SCHEDULES_WRITE
+         *     * `pando-oncall-app.user-settings:admin` - USER_SETTINGS_ADMIN
+         *     * `pando-oncall-app.user-settings:read` - USER_SETTINGS_READ
+         *     * `pando-oncall-app.user-settings:write` - USER_SETTINGS_WRITE */
         permission?:
-          | 'grafana-oncall-app.alert-groups:direct-paging'
-          | 'grafana-oncall-app.alert-groups:read'
-          | 'grafana-oncall-app.alert-groups:write'
-          | 'grafana-oncall-app.api-keys:read'
-          | 'grafana-oncall-app.api-keys:write'
-          | 'grafana-oncall-app.chatops:read'
-          | 'grafana-oncall-app.chatops:update-settings'
-          | 'grafana-oncall-app.chatops:write'
-          | 'grafana-oncall-app.escalation-chains:read'
-          | 'grafana-oncall-app.escalation-chains:write'
-          | 'grafana-oncall-app.integrations:read'
-          | 'grafana-oncall-app.integrations:test'
-          | 'grafana-oncall-app.integrations:write'
-          | 'grafana-oncall-app.maintenance:read'
-          | 'grafana-oncall-app.maintenance:write'
-          | 'grafana-oncall-app.notification-settings:read'
-          | 'grafana-oncall-app.notification-settings:write'
-          | 'grafana-oncall-app.notifications:read'
-          | 'grafana-oncall-app.other-settings:read'
-          | 'grafana-oncall-app.other-settings:write'
-          | 'grafana-oncall-app.outgoing-webhooks:read'
-          | 'grafana-oncall-app.outgoing-webhooks:write'
-          | 'grafana-oncall-app.schedules:export'
-          | 'grafana-oncall-app.schedules:read'
-          | 'grafana-oncall-app.schedules:write'
-          | 'grafana-oncall-app.user-settings:admin'
-          | 'grafana-oncall-app.user-settings:read'
-          | 'grafana-oncall-app.user-settings:write';
+          | 'pando-oncall-app.alert-groups:direct-paging'
+          | 'pando-oncall-app.alert-groups:read'
+          | 'pando-oncall-app.alert-groups:write'
+          | 'pando-oncall-app.api-keys:read'
+          | 'pando-oncall-app.api-keys:write'
+          | 'pando-oncall-app.chatops:read'
+          | 'pando-oncall-app.chatops:update-settings'
+          | 'pando-oncall-app.chatops:write'
+          | 'pando-oncall-app.escalation-chains:read'
+          | 'pando-oncall-app.escalation-chains:write'
+          | 'pando-oncall-app.integrations:read'
+          | 'pando-oncall-app.integrations:test'
+          | 'pando-oncall-app.integrations:write'
+          | 'pando-oncall-app.maintenance:read'
+          | 'pando-oncall-app.maintenance:write'
+          | 'pando-oncall-app.notification-settings:read'
+          | 'pando-oncall-app.notification-settings:write'
+          | 'pando-oncall-app.notifications:read'
+          | 'pando-oncall-app.other-settings:read'
+          | 'pando-oncall-app.other-settings:write'
+          | 'pando-oncall-app.outgoing-webhooks:read'
+          | 'pando-oncall-app.outgoing-webhooks:write'
+          | 'pando-oncall-app.schedules:export'
+          | 'pando-oncall-app.schedules:read'
+          | 'pando-oncall-app.schedules:write'
+          | 'pando-oncall-app.user-settings:admin'
+          | 'pando-oncall-app.user-settings:read'
+          | 'pando-oncall-app.user-settings:write';
         /** @description Number of results to return per page. */
         perpage?: number;
         /** @description * `0` - ADMIN

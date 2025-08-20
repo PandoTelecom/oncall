@@ -14,7 +14,7 @@ refs:
 
 ## List Alerts
 
-**Required permission**: `grafana-oncall-app.alert-groups:read`
+**Required permission**: `pando-oncall-app.alert-groups:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/alerts/" \

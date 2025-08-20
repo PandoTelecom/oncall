@@ -14,7 +14,7 @@ refs:
 
 ## Get an organization
 
-**Required permission**: `grafana-oncall-app.other-settings:read`
+**Required permission**: `pando-oncall-app.other-settings:read`
 
 This endpoint retrieves the organization object.
 
@@ -43,7 +43,7 @@ The above command returns JSON structured in the following way:
 
 ## List Organizations
 
-**Required permission**: `grafana-oncall-app.other-settings:read`
+**Required permission**: `pando-oncall-app.other-settings:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/organizations/" \

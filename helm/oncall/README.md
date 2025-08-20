@@ -57,7 +57,7 @@ Follow the `helm install` output to finish setting up Grafana OnCall backend and
         NOTE: Check with the following command: nslookup example.com
               Try reaching https://example.com/ready/ from the browser, make sure it is not cached locally
 
-  🦎 Grafana was installed as a part of this helm release. Open https://example.com/grafana/plugins/grafana-oncall-app
+  🦎 Grafana was installed as a part of this helm release. Open https://example.com/grafana/plugins/pando-oncall-app
      The User is admin
      Get password by running this command:
 

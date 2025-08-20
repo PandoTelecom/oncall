@@ -134,7 +134,7 @@ def test_add_activity_expected_request():
             "incidentID": incident_id,
             "user": {
                 "userID": "grafana-incident:user-user-id",
-                "name": "Service Account: extsvc-grafana-oncall-app",
+                "name": "Service Account: extsvc-pando-oncall-app",
             },
             "createdTime": "2024-09-18T14:06:47.57795Z",
             "activityKind": "userNote",

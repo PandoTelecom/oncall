@@ -1,5 +1,5 @@
 class PluginID:
-    ONCALL = "grafana-oncall-app"
+    ONCALL = "pando-oncall-app"
     IRM = "grafana-irm-app"
 
     INCIDENT = "grafana-incident-app"

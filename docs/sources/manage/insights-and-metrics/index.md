@@ -267,7 +267,7 @@ Resource IDs are used a lot in insight logs. You can find them in web ui (exampl
 
 1. Open Grafana OnCall.
 2. Navigate to resource.
-3. The URL looks like `https://<YOUR_STACK_SLUG>/a/grafana-oncall-app/integrations/C5VXMIFKKP67K`.
+3. The URL looks like `https://<YOUR_STACK_SLUG>/a/pando-oncall-app/integrations/C5VXMIFKKP67K`.
 4. Integration ID is `C5VXMIFKKP67K`.
 
 Alternatively you can find the resource ID using the [Grafana OnCall API] or browser dev tools.

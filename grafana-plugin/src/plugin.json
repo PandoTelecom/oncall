@@ -1,16 +1,16 @@
 {
   "$schema": "https://raw.githubusercontent.com/grafana/grafana/main/docs/sources/developers/plugins/plugin.schema.json",
   "type": "app",
-  "name": "Grafana OnCall",
-  "id": "grafana-oncall-app",
+  "name": "Pando OnCall",
+  "id": "pando-oncall-app",
   "preload": true,
   "backend": true,
   "executable": "gpx_grafana_oncall_app",
   "info": {
     "description": "Collect and analyze alerts, escalate based on schedules and deliver them to Slack, Phone Calls, SMS and others",
     "author": {
-      "name": "Grafana Labs",
-      "url": "https://grafana.com"
+      "name": "Pando Telecom",
+      "url": "https://pandotelecom.com"
     },
     "keywords": ["oncall", "irm", "incident", "response"],
     "logos": {
@@ -20,11 +20,11 @@
     "links": [
       {
         "name": "Website",
-        "url": "https://github.com/grafana/oncall"
+        "url": "https://github.com/pandotelecom/oncall"
       },
       {
         "name": "License",
-        "url": "https://github.com/grafana/oncall/blob/main/LICENSE"
+        "url": "https://github.com/pandotelecom/oncall/blob/main/LICENSE"
       }
     ],
     "screenshots": [{ "name": "Escalation chain", "path": "assets/img/screenshot.png" }],
@@ -35,74 +35,74 @@
     {
       "type": "page",
       "name": "Home",
-      "path": "/a/grafana-oncall-app",
+      "path": "/a/pando-oncall-app",
       "role": "Viewer",
-      "action": "grafana-oncall-app.alert-groups:read",
+      "action": "pando-oncall-app.alert-groups:read",
       "defaultNav": true,
       "addToNav": true
     },
     {
       "type": "page",
       "name": "Alert groups",
-      "path": "/a/grafana-oncall-app/alert-groups",
+      "path": "/a/pando-oncall-app/alert-groups",
       "role": "Viewer",
-      "action": "grafana-oncall-app.alert-groups:read",
+      "action": "pando-oncall-app.alert-groups:read",
       "addToNav": true
     },
     {
       "type": "page",
       "name": "Users",
-      "path": "/a/grafana-oncall-app/users",
+      "path": "/a/pando-oncall-app/users",
       "role": "Viewer",
-      "action": "grafana-oncall-app.user-settings:read",
+      "action": "pando-oncall-app.user-settings:read",
       "addToNav": true
     },
     {
       "type": "page",
       "name": "Integrations",
-      "path": "/a/grafana-oncall-app/integrations?tab=monitoring-systems",
+      "path": "/a/pando-oncall-app/integrations?tab=monitoring-systems",
       "role": "Viewer",
-      "action": "grafana-oncall-app.integrations:read",
+      "action": "pando-oncall-app.integrations:read",
       "addToNav": true
     },
     {
       "type": "page",
       "name": "Escalation chains",
-      "path": "/a/grafana-oncall-app/escalations",
+      "path": "/a/pando-oncall-app/escalations",
       "role": "Viewer",
-      "action": "grafana-oncall-app.escalation-chains:read",
+      "action": "pando-oncall-app.escalation-chains:read",
       "addToNav": true
     },
     {
       "type": "page",
       "name": "Schedules",
-      "path": "/a/grafana-oncall-app/schedules",
+      "path": "/a/pando-oncall-app/schedules",
       "role": "Viewer",
-      "action": "grafana-oncall-app.schedules:read",
+      "action": "pando-oncall-app.schedules:read",
       "addToNav": true
     },
     {
       "type": "page",
       "name": "Outgoing webhooks",
-      "path": "/a/grafana-oncall-app/outgoing_webhooks",
+      "path": "/a/pando-oncall-app/outgoing_webhooks",
       "role": "Viewer",
-      "action": "grafana-oncall-app.outgoing-webhooks:read",
+      "action": "pando-oncall-app.outgoing-webhooks:read",
       "addToNav": true
     },
     {
       "type": "page",
       "name": "Insights",
-      "path": "/a/grafana-oncall-app/insights",
+      "path": "/a/pando-oncall-app/insights",
       "role": "Viewer",
-      "action": "grafana-oncall-app.other-settings:read",
+      "action": "pando-oncall-app.other-settings:read",
       "addToNav": true
     },
     {
       "type": "page",
       "name": "Settings",
-      "path": "/a/grafana-oncall-app/settings",
+      "path": "/a/pando-oncall-app/settings",
       "role": "Viewer",
-      "action": "grafana-oncall-app.other-settings:read",
+      "action": "pando-oncall-app.other-settings:read",
       "addToNav": true
     },
     {
@@ -134,49 +134,49 @@
         "name": "Admin",
         "description": "Read/write access to everything in OnCall",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
 
-          { "action": "grafana-oncall-app.alert-groups:read" },
-          { "action": "grafana-oncall-app.alert-groups:write" },
-          { "action": "grafana-oncall-app.alert-groups:direct-paging" },
+          { "action": "pando-oncall-app.alert-groups:read" },
+          { "action": "pando-oncall-app.alert-groups:write" },
+          { "action": "pando-oncall-app.alert-groups:direct-paging" },
 
-          { "action": "grafana-oncall-app.integrations:read" },
-          { "action": "grafana-oncall-app.integrations:write" },
-          { "action": "grafana-oncall-app.integrations:test" },
+          { "action": "pando-oncall-app.integrations:read" },
+          { "action": "pando-oncall-app.integrations:write" },
+          { "action": "pando-oncall-app.integrations:test" },
 
-          { "action": "grafana-oncall-app.escalation-chains:read" },
-          { "action": "grafana-oncall-app.escalation-chains:write" },
+          { "action": "pando-oncall-app.escalation-chains:read" },
+          { "action": "pando-oncall-app.escalation-chains:write" },
 
-          { "action": "grafana-oncall-app.schedules:read" },
-          { "action": "grafana-oncall-app.schedules:write" },
-          { "action": "grafana-oncall-app.schedules:export" },
+          { "action": "pando-oncall-app.schedules:read" },
+          { "action": "pando-oncall-app.schedules:write" },
+          { "action": "pando-oncall-app.schedules:export" },
 
-          { "action": "grafana-oncall-app.chatops:read" },
-          { "action": "grafana-oncall-app.chatops:write" },
-          { "action": "grafana-oncall-app.chatops:update-settings" },
+          { "action": "pando-oncall-app.chatops:read" },
+          { "action": "pando-oncall-app.chatops:write" },
+          { "action": "pando-oncall-app.chatops:update-settings" },
 
-          { "action": "grafana-oncall-app.outgoing-webhooks:read" },
-          { "action": "grafana-oncall-app.outgoing-webhooks:write" },
+          { "action": "pando-oncall-app.outgoing-webhooks:read" },
+          { "action": "pando-oncall-app.outgoing-webhooks:write" },
 
-          { "action": "grafana-oncall-app.maintenance:read" },
-          { "action": "grafana-oncall-app.maintenance:write" },
+          { "action": "pando-oncall-app.maintenance:read" },
+          { "action": "pando-oncall-app.maintenance:write" },
 
-          { "action": "grafana-oncall-app.api-keys:read" },
-          { "action": "grafana-oncall-app.api-keys:write" },
+          { "action": "pando-oncall-app.api-keys:read" },
+          { "action": "pando-oncall-app.api-keys:write" },
 
-          { "action": "grafana-oncall-app.notifications:read" },
+          { "action": "pando-oncall-app.notifications:read" },
 
-          { "action": "grafana-oncall-app.notification-settings:read" },
-          { "action": "grafana-oncall-app.notification-settings:write" },
+          { "action": "pando-oncall-app.notification-settings:read" },
+          { "action": "pando-oncall-app.notification-settings:write" },
 
-          { "action": "grafana-oncall-app.user-settings:read" },
-          { "action": "grafana-oncall-app.user-settings:write" },
-          { "action": "grafana-oncall-app.user-settings:admin" },
+          { "action": "pando-oncall-app.user-settings:read" },
+          { "action": "pando-oncall-app.user-settings:write" },
+          { "action": "pando-oncall-app.user-settings:admin" },
 
-          { "action": "grafana-oncall-app.other-settings:read" },
-          { "action": "grafana-oncall-app.other-settings:write" },
+          { "action": "pando-oncall-app.other-settings:read" },
+          { "action": "pando-oncall-app.other-settings:write" },
 
-          { "action": "grafana-oncall-app.admin:admin" }
+          { "action": "pando-oncall-app.admin:admin" }
         ]
       },
       "grants": ["Grafana Admin", "Admin"]
@@ -186,38 +186,38 @@
         "name": "Editor",
         "description": "Similar to the Admin role, minus the abilities to: create Integrations, create Escalation Chains, create Outgoing Webhooks, update ChatOps settings, update other user's settings, and update general OnCall setings.",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
 
-          { "action": "grafana-oncall-app.alert-groups:read" },
-          { "action": "grafana-oncall-app.alert-groups:write" },
-          { "action": "grafana-oncall-app.alert-groups:direct-paging" },
+          { "action": "pando-oncall-app.alert-groups:read" },
+          { "action": "pando-oncall-app.alert-groups:write" },
+          { "action": "pando-oncall-app.alert-groups:direct-paging" },
 
-          { "action": "grafana-oncall-app.integrations:read" },
-          { "action": "grafana-oncall-app.integrations:test" },
+          { "action": "pando-oncall-app.integrations:read" },
+          { "action": "pando-oncall-app.integrations:test" },
 
-          { "action": "grafana-oncall-app.escalation-chains:read" },
+          { "action": "pando-oncall-app.escalation-chains:read" },
 
-          { "action": "grafana-oncall-app.schedules:read" },
-          { "action": "grafana-oncall-app.schedules:write" },
-          { "action": "grafana-oncall-app.schedules:export" },
+          { "action": "pando-oncall-app.schedules:read" },
+          { "action": "pando-oncall-app.schedules:write" },
+          { "action": "pando-oncall-app.schedules:export" },
 
-          { "action": "grafana-oncall-app.chatops:read" },
-          { "action": "grafana-oncall-app.chatops:write" },
+          { "action": "pando-oncall-app.chatops:read" },
+          { "action": "pando-oncall-app.chatops:write" },
 
-          { "action": "grafana-oncall-app.outgoing-webhooks:read" },
+          { "action": "pando-oncall-app.outgoing-webhooks:read" },
 
-          { "action": "grafana-oncall-app.maintenance:read" },
-          { "action": "grafana-oncall-app.maintenance:write" },
+          { "action": "pando-oncall-app.maintenance:read" },
+          { "action": "pando-oncall-app.maintenance:write" },
 
-          { "action": "grafana-oncall-app.notifications:read" },
+          { "action": "pando-oncall-app.notifications:read" },
 
-          { "action": "grafana-oncall-app.notification-settings:read" },
-          { "action": "grafana-oncall-app.notification-settings:write" },
+          { "action": "pando-oncall-app.notification-settings:read" },
+          { "action": "pando-oncall-app.notification-settings:write" },
 
-          { "action": "grafana-oncall-app.user-settings:read" },
-          { "action": "grafana-oncall-app.user-settings:write" },
+          { "action": "pando-oncall-app.user-settings:read" },
+          { "action": "pando-oncall-app.user-settings:write" },
 
-          { "action": "grafana-oncall-app.other-settings:read" }
+          { "action": "pando-oncall-app.other-settings:read" }
         ]
       },
       "grants": ["Editor"]
@@ -227,18 +227,18 @@
         "name": "Reader",
         "description": "Read-only access to everything in OnCall",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
 
-          { "action": "grafana-oncall-app.alert-groups:read" },
-          { "action": "grafana-oncall-app.integrations:read" },
-          { "action": "grafana-oncall-app.escalation-chains:read" },
-          { "action": "grafana-oncall-app.schedules:read" },
-          { "action": "grafana-oncall-app.chatops:read" },
-          { "action": "grafana-oncall-app.outgoing-webhooks:read" },
-          { "action": "grafana-oncall-app.maintenance:read" },
-          { "action": "grafana-oncall-app.notification-settings:read" },
-          { "action": "grafana-oncall-app.user-settings:read" },
-          { "action": "grafana-oncall-app.other-settings:read" }
+          { "action": "pando-oncall-app.alert-groups:read" },
+          { "action": "pando-oncall-app.integrations:read" },
+          { "action": "pando-oncall-app.escalation-chains:read" },
+          { "action": "pando-oncall-app.schedules:read" },
+          { "action": "pando-oncall-app.chatops:read" },
+          { "action": "pando-oncall-app.outgoing-webhooks:read" },
+          { "action": "pando-oncall-app.maintenance:read" },
+          { "action": "pando-oncall-app.notification-settings:read" },
+          { "action": "pando-oncall-app.user-settings:read" },
+          { "action": "pando-oncall-app.other-settings:read" }
         ]
       },
       "grants": ["Viewer"]
@@ -248,10 +248,10 @@
         "name": "Notifications Receiver",
         "description": "Grants the ability to receive OnCall alert notifications. By virtue, also grants the user the ability to edit their own OnCall settings.",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.notifications:read" },
-          { "action": "grafana-oncall-app.user-settings:read" },
-          { "action": "grafana-oncall-app.user-settings:write" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.notifications:read" },
+          { "action": "pando-oncall-app.user-settings:read" },
+          { "action": "pando-oncall-app.user-settings:write" }
         ]
       },
       "grants": []
@@ -261,26 +261,26 @@
         "name": "OnCaller",
         "description": "Grants read access to everything in OnCall. In addition, grants edit access to Alert Groups, Schedules and own settings",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
 
-          { "action": "grafana-oncall-app.alert-groups:read" },
-          { "action": "grafana-oncall-app.alert-groups:write" },
-          { "action": "grafana-oncall-app.alert-groups:direct-paging" },
+          { "action": "pando-oncall-app.alert-groups:read" },
+          { "action": "pando-oncall-app.alert-groups:write" },
+          { "action": "pando-oncall-app.alert-groups:direct-paging" },
 
-          { "action": "grafana-oncall-app.integrations:read" },
-          { "action": "grafana-oncall-app.escalation-chains:read" },
+          { "action": "pando-oncall-app.integrations:read" },
+          { "action": "pando-oncall-app.escalation-chains:read" },
 
-          { "action": "grafana-oncall-app.schedules:read" },
-          { "action": "grafana-oncall-app.schedules:write" },
+          { "action": "pando-oncall-app.schedules:read" },
+          { "action": "pando-oncall-app.schedules:write" },
 
-          { "action": "grafana-oncall-app.chatops:read" },
-          { "action": "grafana-oncall-app.outgoing-webhooks:read" },
-          { "action": "grafana-oncall-app.maintenance:read" },
-          { "action": "grafana-oncall-app.notifications:read" },
-          { "action": "grafana-oncall-app.notification-settings:read" },
-          { "action": "grafana-oncall-app.user-settings:read" },
-          { "action": "grafana-oncall-app.user-settings:write" },
-          { "action": "grafana-oncall-app.other-settings:read" }
+          { "action": "pando-oncall-app.chatops:read" },
+          { "action": "pando-oncall-app.outgoing-webhooks:read" },
+          { "action": "pando-oncall-app.maintenance:read" },
+          { "action": "pando-oncall-app.notifications:read" },
+          { "action": "pando-oncall-app.notification-settings:read" },
+          { "action": "pando-oncall-app.user-settings:read" },
+          { "action": "pando-oncall-app.user-settings:write" },
+          { "action": "pando-oncall-app.other-settings:read" }
         ]
       },
       "grants": []
@@ -290,8 +290,8 @@
         "name": "Alert Groups Reader",
         "description": "Read-only access to OnCall Alert Groups",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.alert-groups:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.alert-groups:read" }
         ]
       },
       "grants": []
@@ -301,9 +301,9 @@
         "name": "Alert Groups Editor",
         "description": "Read access to OnCall Alert Groups + ability to act on Alert Groups (ie. ack, resolve, etc)",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.alert-groups:read" },
-          { "action": "grafana-oncall-app.alert-groups:write" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.alert-groups:read" },
+          { "action": "pando-oncall-app.alert-groups:write" }
         ]
       },
       "grants": []
@@ -313,8 +313,8 @@
         "name": "Alert Groups Direct Paging",
         "description": "Grants the ability to be able to manually create new Alert Groups (aka Direct Paging)",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.alert-groups:direct-paging" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.alert-groups:direct-paging" }
         ]
       },
       "grants": []
@@ -324,8 +324,8 @@
         "name": "Integrations Reader",
         "description": "Read-only access to OnCall Integrations",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.integrations:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.integrations:read" }
         ]
       },
       "grants": []
@@ -335,10 +335,10 @@
         "name": "Integrations Editor",
         "description": "Read/write access to OnCall Integrations",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.integrations:read" },
-          { "action": "grafana-oncall-app.integrations:write" },
-          { "action": "grafana-oncall-app.integrations:test" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.integrations:read" },
+          { "action": "pando-oncall-app.integrations:write" },
+          { "action": "pando-oncall-app.integrations:test" }
         ]
       },
       "grants": []
@@ -348,8 +348,8 @@
         "name": "Escalation Chains Reader",
         "description": "Read-only access to OnCall Escalation Chains",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.escalation-chains:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.escalation-chains:read" }
         ]
       },
       "grants": []
@@ -359,9 +359,9 @@
         "name": "Escalation Chains Editor",
         "description": "Read/write access to OnCall Escalation Chains",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.escalation-chains:read" },
-          { "action": "grafana-oncall-app.escalation-chains:write" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.escalation-chains:read" },
+          { "action": "pando-oncall-app.escalation-chains:write" }
         ]
       },
       "grants": []
@@ -371,8 +371,8 @@
         "name": "Schedules Reader",
         "description": "Read-only access to OnCall Schedules",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.schedules:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.schedules:read" }
         ]
       },
       "grants": []
@@ -382,10 +382,10 @@
         "name": "Schedules Editor",
         "description": "Read/write access to OnCall Schedules",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.schedules:read" },
-          { "action": "grafana-oncall-app.schedules:write" },
-          { "action": "grafana-oncall-app.schedules:export" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.schedules:read" },
+          { "action": "pando-oncall-app.schedules:write" },
+          { "action": "pando-oncall-app.schedules:export" }
         ]
       },
       "grants": []
@@ -395,8 +395,8 @@
         "name": "ChatOps Reader",
         "description": "Read-only access to OnCall ChatOps",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.chatops:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.chatops:read" }
         ]
       },
       "grants": []
@@ -406,10 +406,10 @@
         "name": "ChatOps Editor",
         "description": "Read/write access to OnCall ChatOps",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.chatops:read" },
-          { "action": "grafana-oncall-app.chatops:write" },
-          { "action": "grafana-oncall-app.chatops:update-settings" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.chatops:read" },
+          { "action": "pando-oncall-app.chatops:write" },
+          { "action": "pando-oncall-app.chatops:update-settings" }
         ]
       },
       "grants": []
@@ -419,8 +419,8 @@
         "name": "Outgoing Webhooks Reader",
         "description": "Read-only access to OnCall Outgoing Webhooks",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.outgoing-webhooks:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.outgoing-webhooks:read" }
         ]
       },
       "grants": []
@@ -430,9 +430,9 @@
         "name": "Outgoing Webhooks Editor",
         "description": "Read/write access to OnCall Outgoing Webhooks",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.outgoing-webhooks:read" },
-          { "action": "grafana-oncall-app.outgoing-webhooks:write" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.outgoing-webhooks:read" },
+          { "action": "pando-oncall-app.outgoing-webhooks:write" }
         ]
       },
       "grants": []
@@ -442,8 +442,8 @@
         "name": "Maintenance Reader",
         "description": "Read-only access to OnCall Maintenance",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.maintenance:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.maintenance:read" }
         ]
       },
       "grants": []
@@ -453,9 +453,9 @@
         "name": "Maintenance Editor",
         "description": "Read/write access to OnCall Maintenance",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.maintenance:read" },
-          { "action": "grafana-oncall-app.maintenance:write" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.maintenance:read" },
+          { "action": "pando-oncall-app.maintenance:write" }
         ]
       },
       "grants": []
@@ -465,8 +465,8 @@
         "name": "API Keys Reader",
         "description": "Read-only access to OnCall API Keys",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.api-keys:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.api-keys:read" }
         ]
       },
       "grants": []
@@ -476,9 +476,9 @@
         "name": "API Keys Editor",
         "description": "Read/write access to OnCall API Keys. Also grants access to be able to consume the API.",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.api-keys:read" },
-          { "action": "grafana-oncall-app.api-keys:write" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.api-keys:read" },
+          { "action": "pando-oncall-app.api-keys:write" }
         ]
       },
       "grants": []
@@ -488,8 +488,8 @@
         "name": "Notification Settings Reader",
         "description": "Read-only access to OnCall Notification Settings",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.notification-settings:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.notification-settings:read" }
         ]
       },
       "grants": []
@@ -499,9 +499,9 @@
         "name": "Notification Settings Editor",
         "description": "Read/write access to OnCall Notification Settings",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.notification-settings:read" },
-          { "action": "grafana-oncall-app.notification-settings:write" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.notification-settings:read" },
+          { "action": "pando-oncall-app.notification-settings:write" }
         ]
       },
       "grants": []
@@ -511,8 +511,8 @@
         "name": "User Settings Reader",
         "description": "Read-only access to own OnCall User Settings",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.user-settings:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.user-settings:read" }
         ]
       },
       "grants": []
@@ -522,9 +522,9 @@
         "name": "User Settings Editor",
         "description": "Read/write access to own OnCall User Settings + ability to view basic information about other OnCall users",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.user-settings:read" },
-          { "action": "grafana-oncall-app.user-settings:write" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.user-settings:read" },
+          { "action": "pando-oncall-app.user-settings:write" }
         ]
       },
       "grants": []
@@ -534,10 +534,10 @@
         "name": "User Settings Admin",
         "description": "Read/write access to your own, plus other's OnCall User Settings",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.user-settings:read" },
-          { "action": "grafana-oncall-app.user-settings:write" },
-          { "action": "grafana-oncall-app.user-settings:admin" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.user-settings:read" },
+          { "action": "pando-oncall-app.user-settings:write" },
+          { "action": "pando-oncall-app.user-settings:admin" }
         ]
       },
       "grants": []
@@ -547,8 +547,8 @@
         "name": "Settings Reader",
         "description": "Read-only access to OnCall Settings",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.other-settings:read" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.other-settings:read" }
         ]
       },
       "grants": []
@@ -558,9 +558,9 @@
         "name": "Settings Editor",
         "description": "Read/write access to OnCall Settings",
         "permissions": [
-          { "action": "plugins.app:access", "scope": "plugins:id:grafana-oncall-app" },
-          { "action": "grafana-oncall-app.other-settings:read" },
-          { "action": "grafana-oncall-app.other-settings:write" }
+          { "action": "plugins.app:access", "scope": "plugins:id:pando-oncall-app" },
+          { "action": "pando-oncall-app.other-settings:read" },
+          { "action": "pando-oncall-app.other-settings:write" }
         ]
       },
       "grants": []
@@ -607,7 +607,7 @@
       },
       {
         "action": "plugins.app:access",
-        "scope": "plugins:id:grafana-oncall-app"
+        "scope": "plugins:id:pando-oncall-app"
       },
       {
         "action": "plugins.app:access",
@@ -623,7 +623,7 @@
       },
       {
         "action": "plugins:write",
-        "scope": "plugins:id:grafana-oncall-app"
+        "scope": "plugins:id:pando-oncall-app"
       },
       {
         "action": "roles:read",

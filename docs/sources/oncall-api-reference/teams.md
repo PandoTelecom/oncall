@@ -14,7 +14,7 @@ refs:
 
 ## Get a team
 
-**Required permission**: `grafana-oncall-app.user-settings:read`
+**Required permission**: `pando-oncall-app.user-settings:read`
 
 This endpoint retrieves the team object.
 
@@ -51,7 +51,7 @@ The above command returns JSON structured in the following way:
 
 ## List Teams
 
-**Required permission**: `grafana-oncall-app.user-settings:read`
+**Required permission**: `pando-oncall-app.user-settings:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/teams/" \

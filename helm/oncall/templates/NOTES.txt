@@ -21,7 +21,7 @@
               Try reaching https://{{ .Values.base_url }}/ready/ from the browser, make sure it is not cached locally
 
 {{- if .Values.grafana.enabled }}
-  🦎 Grafana was installed as a part of this helm release. Open https://{{ .Values.base_url }}/grafana/plugins/grafana-oncall-app
+  🦎 Grafana was installed as a part of this helm release. Open https://{{ .Values.base_url }}/grafana/plugins/pando-oncall-app
      The User is {{ .Values.grafana.adminUser }}
      Get password by running this command:
 

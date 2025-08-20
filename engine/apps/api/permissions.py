@@ -147,7 +147,7 @@ def get_required_permission_values(
     This function returns a list of required permission values, taking into account whether or not the organization
     is using the IRM plugin.
 
-    If the IRM plugin is being used, we substitue `grafana-oncall-app` with `grafana-irm-app`
+    If the IRM plugin is being used, we substitue `pando-oncall-app` with `grafana-irm-app`
     as the RBAC permission prefix.
     """
     permission_values = []

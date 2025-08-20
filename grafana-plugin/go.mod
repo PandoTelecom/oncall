@@ -1,4 +1,4 @@
-module github.com/grafana/grafana-oncall-app
+module github.com/grafana/pando-oncall-app
 
 go 1.23.5
 

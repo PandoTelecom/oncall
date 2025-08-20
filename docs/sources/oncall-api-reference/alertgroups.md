@@ -14,7 +14,7 @@ refs:
 
 ## List alert groups
 
-**Required permission**: `grafana-oncall-app.alert-groups:read`
+**Required permission**: `pando-oncall-app.alert-groups:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/alert_groups/" \
@@ -99,7 +99,7 @@ These available filter parameters should be provided as `GET` arguments:
 
 ## Alert group details
 
-**Required permission**: `grafana-oncall-app.alert-groups:read`
+**Required permission**: `pando-oncall-app.alert-groups:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1" \
@@ -113,7 +113,7 @@ curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1" \
 
 ## Acknowledge an alert group
 
-**Required permission**: `grafana-oncall-app.alert-groups:write` (user authentication only)
+**Required permission**: `pando-oncall-app.alert-groups:write` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/acknowledge" \
@@ -127,7 +127,7 @@ curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/acknowledge" \
 
 ## Unacknowledge an alert group
 
-**Required permission**: `grafana-oncall-app.alert-groups:write` (user authentication only)
+**Required permission**: `pando-oncall-app.alert-groups:write` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/unacknowledge" \
@@ -141,7 +141,7 @@ curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/unacknowledge" \
 
 ## Resolve an alert group
 
-**Required permission**: `grafana-oncall-app.alert-groups:write` (user authentication only)
+**Required permission**: `pando-oncall-app.alert-groups:write` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/resolve" \
@@ -155,7 +155,7 @@ curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/resolve" \
 
 ## Unresolve an alert group
 
-**Required permission**: `grafana-oncall-app.alert-groups:write` (user authentication only)
+**Required permission**: `pando-oncall-app.alert-groups:write` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/unresolve" \
@@ -169,7 +169,7 @@ curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/unresolve" \
 
 ## Silence an alert group
 
-**Required permission**: `grafana-oncall-app.alert-groups:write` (user authentication only)
+**Required permission**: `pando-oncall-app.alert-groups:write` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/silence" \
@@ -191,7 +191,7 @@ curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/silence" \
 
 ## Unsilence an alert group
 
-**Required permission**: `grafana-oncall-app.alert-groups:write` (user authentication only)
+**Required permission**: `pando-oncall-app.alert-groups:write` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/unsilence" \
@@ -205,7 +205,7 @@ curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/unsilence" \
 
 ## Delete an alert group
 
-**Required permission**: `grafana-oncall-app.alert-groups:write`
+**Required permission**: `pando-oncall-app.alert-groups:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/alert_groups/I68T24C13IFW1/" \

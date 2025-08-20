@@ -224,10 +224,10 @@ class GrafanaAPIClient(APIClient):
         The response from the Grafana endpoint will look something like this:
         {
             "1": {
-                "grafana-oncall-app.alert-groups:read": [
+                "pando-oncall-app.alert-groups:read": [
                     ""
                 ],
-                "grafana-oncall-app.alert-groups:write": [
+                "pando-oncall-app.alert-groups:write": [
                     ""
                 ]
             }

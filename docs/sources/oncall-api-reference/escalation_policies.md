@@ -14,7 +14,7 @@ refs:
 
 ## Create an escalation policy
 
-**Required permission**: `grafana-oncall-app.escalation-chains:write`
+**Required permission**: `pando-oncall-app.escalation-chains:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/escalation_policies/" \
@@ -63,7 +63,7 @@ The above command returns JSON structured in the following way:
 
 ## Get an escalation policy
 
-**Required permission**: `grafana-oncall-app.escalation-chains:read`
+**Required permission**: `pando-oncall-app.escalation-chains:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/escalation_policies/E3GA6SJETWWJS/" \
@@ -86,7 +86,7 @@ The above command returns JSON structured in the following way:
 
 ## Update an escalation policy
 
-**Required permission**: `grafana-oncall-app.escalation-chains:write`
+**Required permission**: `pando-oncall-app.escalation-chains:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/escalation_policies/E3GA6SJETWWJS/" \
@@ -121,7 +121,7 @@ The above command returns JSON structured in the following way:
 
 ## List escalation policies
 
-**Required permission**: `grafana-oncall-app.escalation-chains:read`
+**Required permission**: `pando-oncall-app.escalation-chains:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/escalation_policies/" \
@@ -171,7 +171,7 @@ The following available filter parameter should be provided as a `GET` argument:
 
 ## Delete an escalation policy
 
-**Required permission**: `grafana-oncall-app.escalation-chains:write`
+**Required permission**: `pando-oncall-app.escalation-chains:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/escalation_policies/E3GA6SJETWWJS/" \
