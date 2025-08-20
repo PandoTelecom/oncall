@@ -17,7 +17,7 @@ DOCKER_REGISTRY = "localhost:63628/"
 
 load("ext://docker_build_sub", "docker_build_sub")
 
-grafana_deps = ["grafana-oncall-app-provisioning-configmap", "build-ui", "build-oncall-plugin-backend"]
+grafana_deps = ["pando-oncall-app-provisioning-configmap", "build-ui", "build-oncall-plugin-backend"]
 
 def get_profiles():
     profiles = os.getenv('ONCALL_PROFILES', 'grafana,plugin,backend,tests')
@@ -116,14 +116,14 @@ def load_grafana():
     if 'plugin' in profiles:
         # Generate and load the grafana deploy yaml
         configmap_create(
-            "grafana-oncall-app-provisioning",
+            "pando-oncall-app-provisioning",
             namespace="default",
-            from_file="dev/grafana/provisioning/plugins/grafana-oncall-app-provisioning.yaml",
+            from_file="dev/grafana/provisioning/plugins/pando-oncall-app-provisioning.yaml",
         )
 
         k8s_resource(
-            objects=["grafana-oncall-app-provisioning:configmap"],
-            new_name="grafana-oncall-app-provisioning-configmap",
+            objects=["pando-oncall-app-provisioning:configmap"],
+            new_name="pando-oncall-app-provisioning-configmap",
             resource_deps=["build-ui"],
             labels=["Grafana"],
         )

@@ -5,7 +5,7 @@ import { OnCallAppPluginMeta } from 'app-types';
 import plugin from '../../package.json'; // eslint-disable-line
 
 export const PluginId = {
-  OnCall: 'grafana-oncall-app',
+  OnCall: 'pando-oncall-app',
   Irm: 'grafana-irm-app',
 } as const;
 export type PluginId = (typeof PluginId)[keyof typeof PluginId];

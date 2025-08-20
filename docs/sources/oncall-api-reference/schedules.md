@@ -14,7 +14,7 @@ refs:
 
 ## Create a schedule
 
-**Required permission**: `grafana-oncall-app.schedules:write`
+**Required permission**: `pando-oncall-app.schedules:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/schedules/" \
@@ -67,7 +67,7 @@ The above command returns JSON structured in the following way:
 
 ## Get a schedule
 
-**Required permission**: `grafana-oncall-app.schedules:read`
+**Required permission**: `pando-oncall-app.schedules:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/schedules/SBM7DV7BKFUYU/" \
@@ -100,7 +100,7 @@ The above command returns JSON structured in the following way:
 
 ## List schedules
 
-**Required permission**: `grafana-oncall-app.schedules:read`
+**Required permission**: `pando-oncall-app.schedules:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/schedules/" \
@@ -164,7 +164,7 @@ The following available filter parameter should be provided as a `GET` argument:
 
 ## Update a schedule
 
-**Required permission**: `grafana-oncall-app.schedules:write`
+**Required permission**: `pando-oncall-app.schedules:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/schedules/SBM7DV7BKFUYU/" \
@@ -204,7 +204,7 @@ The above command returns JSON structured in the following way:
 
 ## Delete a schedule
 
-**Required permission**: `grafana-oncall-app.schedules:write`
+**Required permission**: `pando-oncall-app.schedules:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/schedules/SBM7DV7BKFUYU/" \
@@ -219,7 +219,7 @@ curl "{{API_URL}}/api/v1/schedules/SBM7DV7BKFUYU/" \
 
 ## Export a schedule's final shifts
 
-**Required permission**: `grafana-oncall-app.schedules:read`
+**Required permission**: `pando-oncall-app.schedules:read`
 
 **HTTP request**
 

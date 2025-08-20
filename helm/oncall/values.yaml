@@ -648,15 +648,15 @@ grafana:
   rbac:
     pspEnabled: false
   plugins:
-    - grafana-oncall-app
+    - pando-oncall-app
   extraVolumes:
     - name: provisioning
       configMap:
         name: helm-testing-grafana-plugin-provisioning
   extraVolumeMounts:
     - name: provisioning
-      mountPath: /etc/grafana/provisioning/plugins/grafana-oncall-app-provisioning.yaml
-      subPath: grafana-oncall-app-provisioning.yaml
+      mountPath: /etc/grafana/provisioning/plugins/pando-oncall-app-provisioning.yaml
+      subPath: pando-oncall-app-provisioning.yaml
 
 externalGrafana:
   # Example: https://grafana.mydomain.com

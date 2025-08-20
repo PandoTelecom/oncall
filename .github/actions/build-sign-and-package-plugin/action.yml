@@ -27,7 +27,7 @@ runs:
       shell: bash
       id: artifact-filename
       run: |
-        echo filename="grafana-oncall-app-${{ steps.plugin-version.outputs.version }}.zip" >> $GITHUB_OUTPUT
+        echo filename="pando-oncall-app-${{ steps.plugin-version.outputs.version }}.zip" >> $GITHUB_OUTPUT
     - name: Install Go
       uses: actions/setup-go@v4
       with:
@@ -49,6 +49,6 @@ runs:
         pnpm sign
 
         if [ ! -f dist/MANIFEST.txt ]; then echo "Sign failed, MANIFEST.txt not created, aborting." && exit 1; fi
-        mv dist grafana-oncall-app
-        zip -r grafana-oncall-app.zip ./grafana-oncall-app
-        cp grafana-oncall-app.zip ${{ steps.artifact-filename.outputs.filename }}
+        mv dist pando-oncall-app
+        zip -r pando-oncall-app.zip ./pando-oncall-app
+        cp pando-oncall-app.zip ${{ steps.artifact-filename.outputs.filename }}

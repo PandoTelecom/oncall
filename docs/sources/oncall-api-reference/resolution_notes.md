@@ -14,7 +14,7 @@ refs:
 
 ## Create a resolution note
 
-**Required permission**: `grafana-oncall-app.alert-groups:write`
+**Required permission**: `pando-oncall-app.alert-groups:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/resolution_notes/" \
@@ -51,7 +51,7 @@ The above command returns JSON structured in the following way:
 
 ## Get a resolution note
 
-**Required permission**: `grafana-oncall-app.alert-groups:read`
+**Required permission**: `pando-oncall-app.alert-groups:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/resolution_notes/M4BTQUS3PRHYQ/" \
@@ -79,7 +79,7 @@ The above command returns JSON structured in the following way:
 
 ## List resolution notes
 
-**Required permission**: `grafana-oncall-app.alert-groups:read`
+**Required permission**: `pando-oncall-app.alert-groups:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/resolution_notes/" \
@@ -123,7 +123,7 @@ The following available filter parameter should be provided as a `GET` argument:
 
 ## Update a resolution note
 
-**Required permission**: `grafana-oncall-app.alert-groups:write`
+**Required permission**: `pando-oncall-app.alert-groups:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/resolution_notes/M4BTQUS3PRHYQ/" \
@@ -154,7 +154,7 @@ The above command returns JSON structured in the following way:
 
 ## Delete a resolution note
 
-**Required permission**: `grafana-oncall-app.alert-groups:write`
+**Required permission**: `pando-oncall-app.alert-groups:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/resolution_notes/M4BTQUS3PRHYQ/" \

@@ -20,7 +20,7 @@ class TestGetUsersPermissions:
     @patch("apps.grafana_plugin.helpers.client.GrafanaAPIClient.api_get")
     def test_it_properly_transforms_the_data(self, mocked_grafana_api_client_api_get):
         mocked_grafana_api_client_api_get.return_value = (
-            {"1": {"grafana-oncall-app.alert-groups:read": [""], "grafana-oncall-app.alert-groups:write": [""]}},
+            {"1": {"pando-oncall-app.alert-groups:read": [""], "pando-oncall-app.alert-groups:write": [""]}},
             "asdfasdf",
         )
 
@@ -29,8 +29,8 @@ class TestGetUsersPermissions:
         permissions = api_client.get_users_permissions()
         assert permissions == {
             "1": [
-                {"action": "grafana-oncall-app.alert-groups:read"},
-                {"action": "grafana-oncall-app.alert-groups:write"},
+                {"action": "pando-oncall-app.alert-groups:read"},
+                {"action": "pando-oncall-app.alert-groups:write"},
             ]
         }
 
@@ -48,8 +48,8 @@ class TestGetUsers:
                 ],
                 {
                     "1": [
-                        {"action": "grafana-oncall-app.alert-groups:read"},
-                        {"action": "grafana-oncall-app.alert-groups:write"},
+                        {"action": "pando-oncall-app.alert-groups:read"},
+                        {"action": "pando-oncall-app.alert-groups:write"},
                     ],
                 },
                 [
@@ -57,8 +57,8 @@ class TestGetUsers:
                         "userId": 1,
                         "foo": "bar",
                         "permissions": [
-                            {"action": "grafana-oncall-app.alert-groups:read"},
-                            {"action": "grafana-oncall-app.alert-groups:write"},
+                            {"action": "pando-oncall-app.alert-groups:read"},
+                            {"action": "pando-oncall-app.alert-groups:write"},
                         ],
                     },
                     {

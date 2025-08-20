@@ -108,8 +108,8 @@ We prepared multiple environments:
    ```bash
    # Note: onCallApiUrl 'engine' and grafanaUrl 'grafana' use the name from the docker compose file.  If you are 
    # running your grafana or oncall engine instance with another hostname adjust accordingly. 
-   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/grafana-oncall-app/settings' -H "Content-Type: application/json" -d '{"enabled":true, "jsonData":{"stackId":5, "orgId":100, "onCallApiUrl":"http://engine:8080", "grafanaUrl":"http://grafana:3000"}}'
-   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/grafana-oncall-app/resources/plugin/install'
+   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/pando-oncall-app/settings' -H "Content-Type: application/json" -d '{"enabled":true, "jsonData":{"stackId":5, "orgId":100, "onCallApiUrl":"http://engine:8080", "grafanaUrl":"http://grafana:3000"}}'
+   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/pando-oncall-app/resources/plugin/install'
    ```
 
 6. Start using OnCall, log in to Grafana with credentials
@@ -125,14 +125,14 @@ Here are some API calls that can be made to help if you are having difficulty co
 
    ```bash
    # Use this to get more information about the connection between Grafana and OnCall
-   curl -X GET 'http://admin:admin@localhost:3000/api/plugins/grafana-oncall-app/resources/plugin/status'
+   curl -X GET 'http://admin:admin@localhost:3000/api/plugins/pando-oncall-app/resources/plugin/status'
    ```
 
    ```bash
    # If you added a user or changed permissions and don't see it show up in OnCall you can manually trigger sync.
    # Note: This is called automatically when the app is loaded (page load/refresh) but there is a 5 min timeout so 
    # that it does not generate unnecessary activity.
-   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/grafana-oncall-app/resources/plugin/sync'
+   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/pando-oncall-app/resources/plugin/sync'
    ```
 
 ## Update version
@@ -147,7 +147,7 @@ docker-compose pull engine
 docker-compose up -d
 ```
 
-After updating the engine, you'll also need to click the "Update" button on the [plugin version page](http://localhost:3000/plugins/grafana-oncall-app?page=version-history).
+After updating the engine, you'll also need to click the "Update" button on the [plugin version page](http://localhost:3000/plugins/pando-oncall-app?page=version-history).
 See [Grafana docs](https://grafana.com/docs/grafana/latest/administration/plugin-management/#update-a-plugin) for more
 info on updating Grafana plugins.
 

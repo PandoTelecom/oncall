@@ -14,7 +14,7 @@ refs:
 
 ## Create an OnCall shift
 
-**Required permission**: `grafana-oncall-app.schedules:write`
+**Required permission**: `pando-oncall-app.schedules:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/on_call_shifts/" \
@@ -79,7 +79,7 @@ For more information about recurrence rules, refer to [RFC 5545](https://tools.i
 
 ## Get OnCall shifts
 
-**Required permission**: `grafana-oncall-app.schedules:read`
+**Required permission**: `pando-oncall-app.schedules:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/on_call_shifts/OH3V5FYQEYJ6M/" \
@@ -110,7 +110,7 @@ The above command returns JSON structured in the following way:
 
 ## List OnCall shifts
 
-**Required permission**: `grafana-oncall-app.schedules:read`
+**Required permission**: `pando-oncall-app.schedules:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/on_call_shifts/" \
@@ -175,7 +175,7 @@ The following available filter parameters should be provided as `GET` arguments:
 
 ## Update OnCall shift
 
-**Required permission**: `grafana-oncall-app.schedules:write`
+**Required permission**: `pando-oncall-app.schedules:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/on_call_shifts/OH3V5FYQEYJ6M/" \
@@ -216,7 +216,7 @@ The above command returns JSON structured in the following way:
 
 ## Delete OnCall shift
 
-**Required permission**: `grafana-oncall-app.schedules:write`
+**Required permission**: `pando-oncall-app.schedules:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/on_call_shifts/OH3V5FYQEYJ6M/" \
