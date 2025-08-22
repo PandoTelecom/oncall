@@ -3,31 +3,53 @@ name: Release
 on:
   push:
     tags:
-      - 'v*'  # e.g. v1.0.0
+      - 'v*'   # e.g. v0.1.0
 
 jobs:
   release:
-    permissions:
-      id-token: write
-      contents: write
-      attestations: write
     runs-on: ubuntu-latest
+    permissions:
+      contents: write      # for attaching artifacts if you add a release step later
+      id-token: write      # not strictly needed unless you add OIDC auth later
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      # ⬇️ Minimal fix: run the action from the plugin root
-      - name: Use grafana-plugin/ as workspace root
-        shell: bash
-        run: |
-          shopt -s dotglob
-          mv grafana-plugin/* .
-          rmdir grafana-plugin || true
-
-      - uses: grafana/plugin-actions/build-plugin@main
+      # Node is needed to install deps before your composite action runs pnpm build/sign
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          policy_token: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}  # optional if you want signing
-          attestation: true
-          use_changelog_generator: true
+          node-version: '20'
+
+      # jq is used inside your composite action; install it here to be safe
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      # Install frontend dependencies in grafana-plugin/
+      - name: Install frontend deps (pnpm)
+        working-directory: grafana-plugin
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm --version
+          pnpm install --frozen-lockfile=false
+
+      # ⬇️ Use your existing composite action as-is (it already sets working-directory: grafana-plugin)
+      - name: Build, sign, and package plugin
+        id: build-sign-and-package-plugin
+        uses: ./.github/actions/build-sign-and-package-plugin
+        env:
+          # required if you want signing to succeed
+          GRAFANA_ACCESS_POLICY_TOKEN: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
+        with:
+          plugin_version_number: ${{ github.ref_name }}
+
+      # Upload the packaged ZIP as a build artifact (simple; no cloud storage)
+      - name: Upload plugin ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugin-artifact
+          path: grafana-plugin/${{ steps.build-sign-and-package-plugin.outputs.artifact_filename }}
