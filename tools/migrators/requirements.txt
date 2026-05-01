@@ -30,7 +30,7 @@ pdpyras==4.5.0
     # via -r requirements.in
 pluggy==1.5.0
     # via pytest
-pyasn1==0.6.1
+pyasn1==0.6.2
     # via
     #   pyasn1-modules
     #   rsa
@@ -46,7 +46,7 @@ python-dateutil==2.9.0.post0
     # via kubernetes
 pyyaml==6.0.2
     # via kubernetes
-requests==2.32.3
+requests==2.32.4
     # via
     #   -r requirements.in
     #   kubernetes
@@ -60,7 +60,7 @@ six==1.17.0
     # via
     #   kubernetes
     #   python-dateutil
-urllib3==2.2.2
+urllib3==2.6.3
     # via
     #   kubernetes
     #   pdpyras

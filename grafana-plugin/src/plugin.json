@@ -575,6 +575,53 @@
         "action": "alert.notifications:write"
       },
       {
+        "action": "alert.notifications.external:read",
+        "scope": "datasources:*"
+      },
+      {
+        "action": "alert.notifications.external:write",
+        "scope": "datasources:*"
+      },
+      {
+        "action": "alert.notifications.provisioning:read"
+      },
+      {
+        "action": "alert.notifications.provisioning:write"
+      },
+      {
+        "action": "alert.notifications.config-history:read"
+      },
+      {
+        "action": "alert.notifications.config-history:write"
+      },
+      {
+        "action": "alert.notifications.receivers:list"
+      },
+      {
+        "action": "alert.notifications.receivers:read"
+      },
+      {
+        "action": "alert.notifications.receivers:write"
+      },
+      {
+        "action": "alert.notifications.routes:read"
+      },
+      {
+        "action": "alert.notifications.routes:write"
+      },
+      {
+        "action": "alert.provisioning:read"
+      },
+      {
+        "action": "alert.provisioning:write"
+      },
+      {
+        "action": "alert.rules.provisioning:read"
+      },
+      {
+        "action": "alert.rules.provisioning:write"
+      },
+      {
         "action": "dashboards:create",
         "scope": "folders:*"
       },

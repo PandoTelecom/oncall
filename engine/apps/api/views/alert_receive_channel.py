@@ -1,4 +1,5 @@
 import typing
+import logging
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models import Q
@@ -58,6 +59,8 @@ from common.exceptions import (
     UnableToSendDemoAlert,
 )
 from common.insight_log import EntityEvent, write_resource_insight_log
+
+logger = logging.getLogger(__name__)
 
 
 class AlertReceiveChannelCounter(typing.TypedDict):
@@ -675,17 +678,49 @@ class AlertReceiveChannelView(
     def connect_contact_point(self, request, pk):
         instance = self.get_object()
         if not instance.is_alerting_integration:
+            logger.warning(
+                "connect_contact_point rejected: invalid integration channel=%s integration=%s org=%s",
+                instance.public_primary_key,
+                instance.integration,
+                request.auth.organization_id,
+            )
             raise BadRequest(detail="invalid integration")
 
         datasource_uid = request.data.get("datasource_uid")
         contact_point_name = request.data.get("contact_point_name")
+        logger.info(
+            "connect_contact_point request channel=%s org=%s datasource_uid=%r contact_point_name=%r",
+            instance.public_primary_key,
+            request.auth.organization_id,
+            datasource_uid,
+            contact_point_name,
+        )
         if not datasource_uid or not contact_point_name:
+            logger.warning(
+                "connect_contact_point rejected: missing params channel=%s datasource_uid=%r contact_point_name=%r",
+                instance.public_primary_key,
+                datasource_uid,
+                contact_point_name,
+            )
             raise BadRequest(detail="datasource_uid and contact_point_name are required")
         connected, error = instance.grafana_alerting_sync_manager.connect_contact_point(
             datasource_uid, contact_point_name
         )
         if not connected:
+            logger.warning(
+                "connect_contact_point failed channel=%s datasource_uid=%r contact_point_name=%r error=%r",
+                instance.public_primary_key,
+                datasource_uid,
+                contact_point_name,
+                error,
+            )
             raise BadRequest(detail=error)
+        logger.info(
+            "connect_contact_point success channel=%s datasource_uid=%r contact_point_name=%r",
+            instance.public_primary_key,
+            datasource_uid,
+            contact_point_name,
+        )
         return Response(status=status.HTTP_200_OK)
 
     @extend_schema(
@@ -702,17 +737,49 @@ class AlertReceiveChannelView(
     def create_contact_point(self, request, pk):
         instance = self.get_object()
         if not instance.is_alerting_integration:
+            logger.warning(
+                "create_contact_point rejected: invalid integration channel=%s integration=%s org=%s",
+                instance.public_primary_key,
+                instance.integration,
+                request.auth.organization_id,
+            )
             raise BadRequest(detail="invalid integration")
 
         datasource_uid = request.data.get("datasource_uid")
         contact_point_name = request.data.get("contact_point_name")
+        logger.info(
+            "create_contact_point request channel=%s org=%s datasource_uid=%r contact_point_name=%r",
+            instance.public_primary_key,
+            request.auth.organization_id,
+            datasource_uid,
+            contact_point_name,
+        )
         if not datasource_uid or not contact_point_name:
+            logger.warning(
+                "create_contact_point rejected: missing params channel=%s datasource_uid=%r contact_point_name=%r",
+                instance.public_primary_key,
+                datasource_uid,
+                contact_point_name,
+            )
             raise BadRequest(detail="datasource_uid and contact_point_name are required")
         created, error = instance.grafana_alerting_sync_manager.connect_contact_point(
             datasource_uid, contact_point_name, create_new=True
         )
         if not created:
+            logger.warning(
+                "create_contact_point failed channel=%s datasource_uid=%r contact_point_name=%r error=%r",
+                instance.public_primary_key,
+                datasource_uid,
+                contact_point_name,
+                error,
+            )
             raise BadRequest(detail=error)
+        logger.info(
+            "create_contact_point success channel=%s datasource_uid=%r contact_point_name=%r",
+            instance.public_primary_key,
+            datasource_uid,
+            contact_point_name,
+        )
         return Response(status=status.HTTP_201_CREATED)
 
     @extend_schema(
