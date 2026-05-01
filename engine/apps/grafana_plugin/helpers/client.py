@@ -123,8 +123,10 @@ class APIClient:
             "status_code": status.HTTP_503_SERVICE_UNAVAILABLE,
             "message": "",
         }
+        extra_headers = kwargs.pop("extra_headers", None) or {}
+        headers = {**self.request_headers, **extra_headers}
         try:
-            response = http_method(call_status["url"], json=body, headers=self.request_headers, **kwargs)
+            response = http_method(call_status["url"], json=body, headers=headers, **kwargs)
             call_status["status_code"] = response.status_code
             response.raise_for_status()
 
@@ -302,6 +304,19 @@ class GrafanaAPIClient(APIClient):
 
     def get_alerting_notifiers(self):
         return self.api_get("api/alert-notifiers")
+
+    def get_provisioning_contact_points(self) -> APIClientResponse:
+        return self.api_get("api/v1/provisioning/contact-points")
+
+    def create_provisioning_contact_point(self, contact_point: dict) -> APIClientResponse:
+        return self.api_post(
+            "api/v1/provisioning/contact-points",
+            contact_point,
+            extra_headers={"X-Disable-Provenance": "true"},
+        )
+
+    def delete_provisioning_contact_point(self, uid: str) -> APIClientResponse:
+        return self.call_api(f"api/v1/provisioning/contact-points/{uid}", requests.delete)
 
     def get_grafana_plugin_settings(self, recipient: str) -> APIClientResponse["GrafanaAPIClient.Types.PluginSettings"]:
         return self.api_get(f"api/plugins/{recipient}/settings")
