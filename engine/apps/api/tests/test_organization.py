@@ -20,6 +20,7 @@ mock_env_status = {
         "verification_call": False,
         "verification_sms": False,
     },
+    "mattermost_configured": False,
 }
 
 
@@ -198,7 +199,8 @@ def test_organization_get_telegram_verification_code_permissions(
     client = APIClient()
 
     url = reverse("api-internal:api-get-telegram-verification-code")
-    response = client.get(url, format="json", **make_user_auth_headers(tester, token))
+    with patch("apps.telegram.client.TelegramClient.get_bot_username", return_value="test_bot_username"):
+        response = client.get(url, format="json", **make_user_auth_headers(tester, token))
 
     assert response.status_code == expected_status
 

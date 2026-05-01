@@ -1,4 +1,4 @@
-FROM python:3.12.3-slim AS base
+FROM python:3.13.11-alpine3.22 AS base
 ARG TARGETPLATFORM
 
 ENV APP_USER=appuser
@@ -15,7 +15,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     libpcre3-dev \
     default-libmysqlclient-dev \
     libffi-dev \
-    libssl-dev \
+    libxslt-dev \
+    libxml2-dev \
     git \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
@@ -24,11 +25,10 @@ WORKDIR /etc/app
 
 COPY ./requirements.txt ./
 
-# Get a proper manylinux aarch64 wheel for grpcio on Debian/glibc
-RUN python -m pip install --upgrade "pip>=24" && \
-    pip install --no-cache-dir --only-binary=:all: "grpcio==1.64.1"
+RUN pip install -U uv setuptools pip
 
-RUN pip install --no-cache-dir uv setuptools
+# make sure we are using the correct Python version
+RUN uv python pin 3.13.11
 
 # uWSGI will compile here; we now have gcc and Python headers installed
 RUN uv pip install --system -r requirements.txt
