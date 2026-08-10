@@ -1,6 +1,7 @@
 suite: test SMTP/Email envs for deployments
 templates:
   - engine/deployment.yaml
+  - secrets.yaml
 release:
   name: oncall
 tests:
@@ -51,3 +52,46 @@ tests:
           content:
             name: EMAIL_USE_SSL
             value: "False"
+
+  - it: oncall.smtp.existingSecret=some-secret -> should prefer existing secret over oncall.smtp.password
+    templates:
+      - engine/deployment.yaml
+    set:
+      oncall.smtp:
+        enabled: true
+        password: "inline-password"
+        existingSecret: some-secret
+        passwordKey: smtp-password
+    asserts:
+      - contains:
+          path: spec.template.spec.containers[0].env
+          content:
+            name: EMAIL_HOST_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: some-secret
+                key: smtp-password
+
+  - it: oncall.smtp.existingSecret=some-secret -> should not create chart-managed SMTP secret
+    templates:
+      - secrets.yaml
+    set:
+      oncall.smtp:
+        enabled: true
+        password: "inline-password"
+        existingSecret: some-secret
+        passwordKey: smtp-password
+    asserts:
+      - hasDocuments:
+          count: 6
+
+  - it: oncall.smtp.existingSecret=some-secret -> should fail if passwordKey is missing
+    templates:
+      - engine/deployment.yaml
+    set:
+      oncall.smtp:
+        enabled: true
+        existingSecret: some-secret
+    asserts:
+      - failedTemplate:
+          errorMessage: oncall.smtp.passwordKey is required if oncall.smtp.existingSecret is not empty
