@@ -340,6 +340,10 @@ oncall:
     port: ~
     username: ~
     password: ~
+    # Use existing secret for SMTP password. (passwordKey is required)
+    existingSecret: ""
+    # The key in the secret containing SMTP password
+    passwordKey: ""
     tls: ~
     ssl: ~
     fromEmail: ~

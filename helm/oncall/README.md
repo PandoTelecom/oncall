@@ -109,6 +109,11 @@ If external component is used instead of the bundled one:
   it is used together with corresponding key names, e.g. `externalMysql.passwordKey`.
 - Otherwise, corresponding password values are used, e.g. `externalMysql.password`. K8s secret is created by OnCall chart.
 
+OnCall-managed integrations follow the same pattern where supported. For SMTP, use either:
+
+- `oncall.smtp.password` to let the chart create the `<release>-smtp` secret with key `smtp-password`
+- `oncall.smtp.existingSecret` with `oncall.smtp.passwordKey` to reference an existing Kubernetes secret
+
 Below is the summary for the dependent charts.
 
 MySQL/MariaDB:

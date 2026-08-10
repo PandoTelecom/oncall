@@ -618,11 +618,18 @@ when broker.type != rabbitmq, we do not need to include rabbitmq environment var
 - name: EMAIL_HOST_USER
   value: {{ .Values.oncall.smtp.username | quote }}
 - name: EMAIL_HOST_PASSWORD
+  {{- if .Values.oncall.smtp.existingSecret }}
+  valueFrom:
+    secretKeyRef:
+      name: {{ .Values.oncall.smtp.existingSecret }}
+      key: {{ required "oncall.smtp.passwordKey is required if oncall.smtp.existingSecret is not empty" .Values.oncall.smtp.passwordKey | quote }}
+  {{- else }}
   valueFrom:
     secretKeyRef:
       name: {{ include "oncall.fullname" . }}-smtp
       key: smtp-password
       optional: true
+  {{- end }}
 - name: EMAIL_USE_TLS
   value: {{ $smtpTLS }}
 - name: EMAIL_USE_SSL
