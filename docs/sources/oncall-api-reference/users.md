@@ -14,7 +14,7 @@ refs:
 
 ## Get a user
 
-**Required permission**: `grafana-oncall-app.user-settings:read`
+**Required permission**: `pando-oncall-app.user-settings:read`
 
 This endpoint retrieves the user object.
 
@@ -64,7 +64,7 @@ Use `{{API_URL}}/api/v1/users/current` to retrieve the current user.
 
 ## List Users
 
-**Required permission**: `grafana-oncall-app.user-settings:read`
+**Required permission**: `pando-oncall-app.user-settings:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/users/" \

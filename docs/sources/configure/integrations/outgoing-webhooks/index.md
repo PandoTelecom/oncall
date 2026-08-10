@@ -248,7 +248,7 @@ must match the structure of how the fields are nested in the data.
     "permalinks": {
       "slack": null,
       "telegram": null,
-      "web": "https://**********.grafana.net/a/grafana-oncall-app/alert-groups/I6HNZGUFG4K11"
+      "web": "https://**********.grafana.net/a/pando-oncall-app/alert-groups/I6HNZGUFG4K11"
     },
     "labels": {
       "urgency": "3"

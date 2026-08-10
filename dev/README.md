@@ -44,7 +44,7 @@ Related: [How to develop integrations](/engine/config_integrations/README.md)
 
    Available profiles are: `grafana,plugin,backend,tests`, by default all the profiles are enabled.
 
-3. Wait until all resources are green and open <http://localhost:3000/a/grafana-oncall-app> (user: oncall, password: oncall)
+3. Wait until all resources are green and open <http://localhost:3000/a/pando-oncall-app> (user: oncall, password: oncall)
 
 4. Modify source code, backend and frontend will be hot reloaded
 
@@ -67,7 +67,7 @@ environment variable.
 2. Run `make init start`. By default this will run everything in Docker, using SQLite as the database and Redis as the
    message broker/cache. See [`COMPOSE_PROFILES`](#compose_profiles) below for more details on how to swap
    out/disable which components are run in Docker.
-3. Open Grafana in a browser [here](http://localhost:3000/plugins/grafana-oncall-app) (login: `oncall`, password: `oncall`).
+3. Open Grafana in a browser [here](http://localhost:3000/plugins/pando-oncall-app) (login: `oncall`, password: `oncall`).
 4. You should now see the OnCall plugin configuration page. You may safely ignore the warning about the invalid
    plugin signature. Set "OnCall backend URL" as "http://host.docker.internal:8080". When opening the main plugin page,
    you may also ignore warnings about version mismatch and lack of communication channels.

@@ -5,10 +5,10 @@ metadata:
   labels:
     app: {{ include "oncall.name" . }}
 data:
-  grafana-oncall-app-provisioning.yaml: |
+  pando-oncall-app-provisioning.yaml: |
     apps:
-      - type: grafana-oncall-app
-        name: grafana-oncall-app
+      - type: pando-oncall-app
+        name: pando-oncall-app
         disabled: false
         jsonData:
           stackId: 5

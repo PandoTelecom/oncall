@@ -27,7 +27,7 @@ refs:
 
 # Escalation HTTP API
 
-**Required permission**: `grafana-oncall-app.alert-groups:direct-paging` (user authentication only)
+**Required permission**: `pando-oncall-app.alert-groups:direct-paging` (user authentication only)
 
 See [Manual paging integration](ref:manual-paging) for more background on how escalating to a team or user(s) works.
 
@@ -76,7 +76,7 @@ The above command returns JSON structured in the following way:
     "slack": null,
     "slack_app": null,
     "telegram": null,
-    "web": "http://<my_grafana_url>/a/grafana-oncall-app/alert-groups/I5LAZ2MXGPUAH"
+    "web": "http://<my_grafana_url>/a/pando-oncall-app/alert-groups/I5LAZ2MXGPUAH"
   },
   "silenced_at": null
 }
@@ -119,7 +119,7 @@ The above command returns JSON structured in the following way:
     "slack": null,
     "slack_app": null,
     "telegram": null,
-    "web": "http://<my_grafana_url>/a/grafana-oncall-app/alert-groups/I5LAZ2MXGPUAH"
+    "web": "http://<my_grafana_url>/a/pando-oncall-app/alert-groups/I5LAZ2MXGPUAH"
   },
   "silenced_at": null
 }
@@ -168,7 +168,7 @@ The above command returns JSON structured in the following way:
     "slack": null,
     "slack_app": null,
     "telegram": null,
-    "web": "http://<my_grafana_url>/a/grafana-oncall-app/alert-groups/I5LAZ2MXGPUAH"
+    "web": "http://<my_grafana_url>/a/pando-oncall-app/alert-groups/I5LAZ2MXGPUAH"
   },
   "silenced_at": null
 }

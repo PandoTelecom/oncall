@@ -1,25 +1,21 @@
-# 🚨 Update: Grafana OnCall OSS 🚨
+# 🚨 Archived: Grafana OnCall OSS 🚨
 
-As of 2025-03-11, Grafana OnCall (OSS) has entered maintenance mode and will be archived on 2026-03-24.
-While you may continue to use OnCall OSS in its current state, no further updates or new features will be introduced.
-However, we will still provide fixes for critical bugs and for valid CVEs with a CVSS score of 7.0 or higher.
+On 2025-03-11 Grafana OnCall (OSS) entered maintenance mode and was archived on 2026-03-24.
 
 For users seeking a fully supported and actively maintained alternative,
 **Grafana Cloud IRM** offers a modern approach to incident response and on-call management.
 
-- [Grafana OnCall OSS updates blog](https://grafana.com/blog/2025/03/11/grafana-oncall-maintenance-mode/)
-- [Grafana Cloud IRM announcement blog post](https://grafana.com/blog/2025/03/11/oncall-management-incident-response-grafana-cloud-irm/)
-- [Migration Guide](https://grafana.com/docs/oncall/latest/set-up/migration-from-other-tools/)
+- [Grafana Cloud IRM documentation](https://grafana.com/docs/grafana-cloud/alerting-and-irm/irm/)
 
 ## Grafana OnCall
 
 <img width="400px" src="docs/img/logo.png">
 
 [![Latest Release](https://img.shields.io/github/v/release/grafana/oncall?display_name=tag&sort=semver)](https://github.com/grafana/oncall/releases)
-[![License](https://img.shields.io/github/license/grafana/oncall)](https://github.com/grafana/oncall/blob/dev/LICENSE)
+[![License](https://img.shields.io/github/license/grafana/oncall)](https://github.com/grafana/oncall/blob/main/LICENSE)
 [![Docker Pulls](https://img.shields.io/docker/pulls/grafana/oncall)](https://hub.docker.com/r/grafana/oncall/tags)
 [![Slack](https://img.shields.io/badge/join%20slack-%23grafana-%2Doncall-brightgreen.svg)](https://slack.grafana.com/)
-[![Build Status](https://github.com/grafana/oncall/actions/workflows/on-commits-to-dev.yml/badge.svg)](https://github.com/grafana/oncall/actions/workflows/on-commits-to-dev.yml)
+[![Build Status](https://github.com/grafana/oncall/actions/workflows/build-oncall-engine-docker-image.yml/badge.svg?branch=main)](https://github.com/grafana/oncall/actions/workflows/build-oncall-engine-docker-image.yml?query=branch%3Amain)
 
 Developer-friendly incident response with brilliant Slack integration.
 
@@ -55,7 +51,7 @@ We prepared multiple environments:
 1. Download [`docker-compose.yml`](docker-compose.yml):
 
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/grafana/oncall/dev/docker-compose.yml -o docker-compose.yml
+   curl -fsSL https://raw.githubusercontent.com/grafana/oncall/main/docker-compose.yml -o docker-compose.yml
    ```
 
 2. Set variables:
@@ -108,8 +104,8 @@ We prepared multiple environments:
    ```bash
    # Note: onCallApiUrl 'engine' and grafanaUrl 'grafana' use the name from the docker compose file.  If you are 
    # running your grafana or oncall engine instance with another hostname adjust accordingly. 
-   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/grafana-oncall-app/settings' -H "Content-Type: application/json" -d '{"enabled":true, "jsonData":{"stackId":5, "orgId":100, "onCallApiUrl":"http://engine:8080", "grafanaUrl":"http://grafana:3000"}}'
-   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/grafana-oncall-app/resources/plugin/install'
+   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/pando-oncall-app/settings' -H "Content-Type: application/json" -d '{"enabled":true, "jsonData":{"stackId":5, "orgId":100, "onCallApiUrl":"http://engine:8080", "grafanaUrl":"http://grafana:3000"}}'
+   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/pando-oncall-app/resources/plugin/install'
    ```
 
 6. Start using OnCall, log in to Grafana with credentials
@@ -125,14 +121,14 @@ Here are some API calls that can be made to help if you are having difficulty co
 
    ```bash
    # Use this to get more information about the connection between Grafana and OnCall
-   curl -X GET 'http://admin:admin@localhost:3000/api/plugins/grafana-oncall-app/resources/plugin/status'
+   curl -X GET 'http://admin:admin@localhost:3000/api/plugins/pando-oncall-app/resources/plugin/status'
    ```
 
    ```bash
    # If you added a user or changed permissions and don't see it show up in OnCall you can manually trigger sync.
    # Note: This is called automatically when the app is loaded (page load/refresh) but there is a 5 min timeout so 
    # that it does not generate unnecessary activity.
-   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/grafana-oncall-app/resources/plugin/sync'
+   curl -X POST 'http://admin:admin@localhost:3000/api/plugins/pando-oncall-app/resources/plugin/sync'
    ```
 
 ## Update version
@@ -147,7 +143,7 @@ docker-compose pull engine
 docker-compose up -d
 ```
 
-After updating the engine, you'll also need to click the "Update" button on the [plugin version page](http://localhost:3000/plugins/grafana-oncall-app?page=version-history).
+After updating the engine, you'll also need to click the "Update" button on the [plugin version page](http://localhost:3000/plugins/pando-oncall-app?page=version-history).
 See [Grafana docs](https://grafana.com/docs/grafana/latest/administration/plugin-management/#update-a-plugin) for more
 info on updating Grafana plugins.
 
@@ -164,9 +160,9 @@ Have a question, comment or feedback? Don't be afraid to [open an issue](https:/
 
 ## Further Reading
 
-- _Automated migration from other on-call tools_ - [Migrator](https://github.com/grafana/oncall/tree/dev/tools/migrators)
+- _Automated migration from other on-call tools_ - [Migrator](https://github.com/grafana/oncall/tree/main/tools/migrators)
 - _Documentation_ - [Grafana OnCall](https://grafana.com/docs/oncall/latest/)
 - _Overview Webinar_ - [YouTube](https://www.youtube.com/watch?v=7uSe1pulgs8)
-- _How To Add Integration_ - [How to Add Integration](https://github.com/grafana/oncall/tree/dev/engine/config_integrations/README.md)
+- _How To Add Integration_ - [How to Add Integration](https://github.com/grafana/oncall/tree/main/engine/config_integrations/README.md)
 - _Blog Post_ - [Announcing Grafana OnCall, the easiest way to do on-call management](https://grafana.com/blog/2021/11/09/announcing-grafana-oncall/)
 - _Presentation_ - [Deep dive into the Grafana, Prometheus, and Alertmanager stack for alerting and on-call management](https://grafana.com/go/observabilitycon/2021/alerting/?pg=blog)

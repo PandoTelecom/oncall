@@ -14,6 +14,7 @@ export enum AlertAction {
   unResolve = 'unresolve',
   Silence = 'silence',
   unSilence = 'unsilence',
+  delete = 'delete',
 }
 
 export enum TimeLineRealm {

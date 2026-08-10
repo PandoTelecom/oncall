@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.9.28](https://github.com/grafana/irm/compare/grafana-oncall-app-v1.9.27...grafana-oncall-app-v1.9.28) (2024-10-01)
+## [1.9.28](https://github.com/grafana/irm/compare/pando-oncall-app-v1.9.27...pando-oncall-app-v1.9.28) (2024-10-01)
 
 
 ### Bug Fixes
@@ -12,7 +12,7 @@
 
 * implement merged IRM module.tsx ([#182](https://github.com/grafana/irm/issues/182)) ([995b573](https://github.com/grafana/irm/commit/995b5732493aabc226cd62b9ca52a1e582ef5878))
 
-## [1.9.27](https://github.com/grafana/irm/compare/grafana-oncall-app-v1.9.26...grafana-oncall-app-v1.9.27) (2024-09-26)
+## [1.9.27](https://github.com/grafana/irm/compare/pando-oncall-app-v1.9.26...pando-oncall-app-v1.9.27) (2024-09-26)
 
 
 ### Bug Fixes
@@ -35,7 +35,7 @@
 * release main ([#187](https://github.com/grafana/irm/issues/187)) ([3221340](https://github.com/grafana/irm/commit/3221340148ac972ed32cd16194a5eaf3cc29db3d))
 * release main ([#190](https://github.com/grafana/irm/issues/190)) ([e2489d0](https://github.com/grafana/irm/commit/e2489d0a31c4ac80dc72dca57c42eb3068fa4661))
 
-## [1.9.26](https://github.com/grafana/irm/compare/grafana-oncall-app-v1.9.25...grafana-oncall-app-v1.9.26) (2024-09-23)
+## [1.9.26](https://github.com/grafana/irm/compare/pando-oncall-app-v1.9.25...pando-oncall-app-v1.9.26) (2024-09-23)
 
 
 ### Bug Fixes

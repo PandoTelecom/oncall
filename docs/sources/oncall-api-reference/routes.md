@@ -14,7 +14,7 @@ refs:
 
 ## Create a route
 
-**Required permission**: `grafana-oncall-app.integrations:write`
+**Required permission**: `pando-oncall-app.integrations:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/routes/" \
@@ -69,7 +69,7 @@ Routes allow you to direct different alerts to different messenger channels and 
 
 ## Get a route
 
-**Required permission**: `grafana-oncall-app.integrations:read`
+**Required permission**: `pando-oncall-app.integrations:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/routes/RIYGUJXCPFHXY/" \
@@ -100,7 +100,7 @@ The above command returns JSON structured in the following way:
 
 ## List routes
 
-**Required permission**: `grafana-oncall-app.integrations:read`
+**Required permission**: `pando-oncall-app.integrations:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/routes/" \
@@ -159,7 +159,7 @@ The following available filter parameters should be provided as `GET` arguments:
 
 ## Update route
 
-**Required permission**: `grafana-oncall-app.integrations:write`
+**Required permission**: `pando-oncall-app.integrations:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/routes/RIYGUJXCPFHXY/" \
@@ -197,7 +197,7 @@ The above command returns JSON structured in the following way:
 
 ## Delete a route
 
-**Required permission**: `grafana-oncall-app.integrations:write`
+**Required permission**: `pando-oncall-app.integrations:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/routes/RIYGUJXCPFHXY/" \

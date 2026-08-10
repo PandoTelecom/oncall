@@ -52,6 +52,7 @@ from apps.auth_token.models import (
     ApiAuthToken,
     GoogleOAuth2Token,
     IntegrationBacksyncAuthToken,
+    MattermostAuthToken,
     PluginAuthToken,
     ServiceAccountToken,
     SlackAuthToken,
@@ -330,6 +331,14 @@ def make_slack_token_for_user():
 
 
 @pytest.fixture
+def make_mattermost_token_for_user():
+    def _make_mattermost_token_for_user(user):
+        return MattermostAuthToken.create_auth_token(organization=user.organization, user=user)
+
+    return _make_mattermost_token_for_user
+
+
+@pytest.fixture
 def make_google_oauth2_token_for_user():
     def _make_google_oauth2_token_for_user(user):
         return GoogleOAuth2Token.create_auth_token(organization=user.organization, user=user)
@@ -429,7 +438,7 @@ def get_user_permission_role_mapping_from_frontend_plugin_json() -> RoleMapping:
     for role in plugin_json["roles"]:
         if grants := role["grants"]:
             for permission in role["role"]["permissions"]:
-                # only concerned with grafana-oncall-app specific grants
+                # only concerned with pando-oncall-app specific grants
                 # ignore things like plugins.app:access actions
                 action = permission["action"]
                 permission_class = None

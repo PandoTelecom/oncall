@@ -1,0 +1,55 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'   # e.g. v0.1.0
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write      # for attaching artifacts if you add a release step later
+      id-token: write      # not strictly needed unless you add OIDC auth later
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Node is needed to install deps before your composite action runs pnpm build/sign
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # jq is used inside your composite action; install it here to be safe
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      # Install frontend dependencies in grafana-plugin/
+      - name: Install frontend deps (pnpm)
+        working-directory: grafana-plugin
+        run: |
+          corepack enable
+          corepack prepare pnpm@latest --activate
+          pnpm --version
+          pnpm install --frozen-lockfile=false
+
+      # ⬇️ Use your existing composite action as-is (it already sets working-directory: grafana-plugin)
+      - name: Build, sign, and package plugin
+        id: build-sign-and-package-plugin
+        uses: ./.github/actions/build-sign-and-package-plugin
+        env:
+          # required if you want signing to succeed
+          GRAFANA_ACCESS_POLICY_TOKEN: ${{ secrets.GRAFANA_ACCESS_POLICY_TOKEN }}
+        with:
+          plugin_version_number: ${{ github.ref_name }}
+
+      # Upload the packaged ZIP as a build artifact (simple; no cloud storage)
+      - name: Upload plugin ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: plugin-artifact
+          path: grafana-plugin/${{ steps.build-sign-and-package-plugin.outputs.artifact_filename }}

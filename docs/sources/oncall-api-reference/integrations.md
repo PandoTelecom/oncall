@@ -23,7 +23,7 @@ refs:
 
 ## Create an integration
 
-**Required permission**: `grafana-oncall-app.integrations:write`
+**Required permission**: `pando-oncall-app.integrations:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/integrations/" \
@@ -104,7 +104,7 @@ For example, to learn how to integrate Grafana OnCall with Alertmanager refer to
 
 ## Get integration
 
-**Required permission**: `grafana-oncall-app.integrations:read`
+**Required permission**: `pando-oncall-app.integrations:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/integrations/CFRPV98RPR1U8/" \
@@ -181,7 +181,7 @@ This endpoint retrieves an integration. Integrations are sources of alerts and a
 
 ## List integrations
 
-**Required permission**: `grafana-oncall-app.integrations:read`
+**Required permission**: `pando-oncall-app.integrations:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/integrations/" \
@@ -268,7 +268,7 @@ The above command returns JSON structured in the following way:
 
 ## Update integration
 
-**Required permission**: `grafana-oncall-app.integrations:write`
+**Required permission**: `pando-oncall-app.integrations:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/integrations/CFRPV98RPR1U8/" \
@@ -347,7 +347,7 @@ The above command returns JSON structured in the following way:
 
 ## Delete integration
 
-**Required permission**: `grafana-oncall-app.integrations:write`
+**Required permission**: `pando-oncall-app.integrations:write`
 
 Deleted integrations will stop recording new alerts from monitoring. Integration removal won't trigger removal of
 related alert groups or alerts.

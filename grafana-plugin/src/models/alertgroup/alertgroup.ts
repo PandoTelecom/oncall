@@ -286,6 +286,16 @@ export class AlertGroupStore {
     });
   }
 
+    @WithGlobalNotification({
+    failure: 'Failed to delete alert group',
+    success: 'Alert group deleted',
+    composeFailureMessageFn,
+  })
+  async delete(id: ApiSchemas['AlertGroup']['pk']) {
+    await onCallApi().DELETE('/alertgroups/{id}/', { params: { path: { id } } });
+    await this.fetchAlertGroups();
+  }
+
   async doIncidentAction(id: ApiSchemas['AlertGroup']['pk'], action: AlertAction, delay?: number) {
     const actionToMethodMap = {
       [AlertAction.Acknowledge]: this.acknowledge,
@@ -294,6 +304,7 @@ export class AlertGroupStore {
       [AlertAction.unSilence]: this.unsilence,
       [AlertAction.Resolve]: this.resolve,
       [AlertAction.unResolve]: this.unresolve,
+      [AlertAction.delete]: this.delete
     };
 
     if (actionToMethodMap[action]) {

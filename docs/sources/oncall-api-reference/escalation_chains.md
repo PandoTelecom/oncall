@@ -14,7 +14,7 @@ refs:
 
 ## Create an escalation chain
 
-**Required permission**: `grafana-oncall-app.escalation-chains:write`
+**Required permission**: `pando-oncall-app.escalation-chains:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/escalation_chains/" \
@@ -47,7 +47,7 @@ The above command returns JSON structured in the following way:
 
 ## Get an escalation chain
 
-**Required permission**: `grafana-oncall-app.escalation-chains:read`
+**Required permission**: `pando-oncall-app.escalation-chains:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/escalation_chains/F5JU6KJET33FE/" \
@@ -72,7 +72,7 @@ The above command returns JSON structured in the following way:
 
 ## List escalation chains
 
-**Required permission**: `grafana-oncall-app.escalation-chains:read`
+**Required permission**: `pando-oncall-app.escalation-chains:read`
 
 ```shell
 curl "{{API_URL}}/api/v1/escalation_chains/" \
@@ -109,7 +109,7 @@ The above command returns JSON structured in the following way:
 
 ## Delete an escalation chain
 
-**Required permission**: `grafana-oncall-app.escalation-chains:write`
+**Required permission**: `pando-oncall-app.escalation-chains:write`
 
 ```shell
 curl "{{API_URL}}/api/v1/escalation_chains/F5JU6KJET33FE/" \

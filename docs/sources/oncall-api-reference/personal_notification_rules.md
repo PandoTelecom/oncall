@@ -14,7 +14,7 @@ refs:
 
 ## Post a personal notification rule
 
-**Required permission**: `grafana-oncall-app.user-settings:write` (user authentication only)
+**Required permission**: `pando-oncall-app.user-settings:write` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/personal_notification_rules/" \
@@ -53,7 +53,7 @@ The above command returns JSON structured in the following way:
 
 ## Get personal notification rule
 
-**Required permission**: `grafana-oncall-app.user-settings:read` (user authentication only)
+**Required permission**: `pando-oncall-app.user-settings:read` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/personal_notification_rules/ND9EHN5LN1DUU/" \
@@ -81,7 +81,7 @@ The above command returns JSON structured in the following way:
 
 ## List personal notification rules
 
-**Required permission**: `grafana-oncall-app.user-settings:read` (user authentication only)
+**Required permission**: `pando-oncall-app.user-settings:read` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/personal_notification_rules/" \
@@ -147,7 +147,7 @@ The following available filter parameters should be provided as `GET` arguments:
 
 ## Delete a personal notification rule
 
-**Required permission**: `grafana-oncall-app.user-settings:write` (user authentication only)
+**Required permission**: `pando-oncall-app.user-settings:write` (user authentication only)
 
 ```shell
 curl "{{API_URL}}/api/v1/personal_notification_rules/NWAL6WFJNWDD8/" \

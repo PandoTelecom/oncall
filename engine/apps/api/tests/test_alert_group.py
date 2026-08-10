@@ -2447,12 +2447,12 @@ def test_alert_group_affected_services(
         {
             "name": "service-2",
             "service_url": "a/grafana-slo-app/service/service-2",
-            "alert_groups_url": "a/grafana-oncall-app/alert-groups?status=0&status=1&started_at=now-7d_now&label=service_name:service-2",
+            "alert_groups_url": "a/pando-oncall-app/alert-groups?status=0&status=1&started_at=now-7d_now&label=service_name:service-2",
         },
         {
             "name": "service-a",
             "service_url": "a/grafana-slo-app/service/service-a",
-            "alert_groups_url": "a/grafana-oncall-app/alert-groups?status=0&status=1&started_at=now-7d_now&label=service_name:service-a",
+            "alert_groups_url": "a/pando-oncall-app/alert-groups?status=0&status=1&started_at=now-7d_now&label=service_name:service-a",
         },
     ]
     assert response.json() == expected

@@ -71,7 +71,7 @@ const config = async (env): Promise<Configuration> => {
         : []),
       new EnvironmentPlugin({
         NODE_ENV: 'development',
-        PLUGIN_ID: 'grafana-oncall-app',
+        PLUGIN_ID: 'pando-oncall-app',
       }),
     ],
   };

@@ -672,7 +672,7 @@ Minor bugfixes + dependency updates :)
 
 ### Added
 
-- New RBAC action `grafana-oncall-app.alert-groups:direct-paging` and role "Alert Groups Direct Paging" by @joeyorlando
+- New RBAC action `pando-oncall-app.alert-groups:direct-paging` and role "Alert Groups Direct Paging" by @joeyorlando
   ([#3107](https://github.com/grafana/oncall/pull/3107))
 
 ### Fixed
