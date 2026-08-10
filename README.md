@@ -12,10 +12,10 @@ For users seeking a fully supported and actively maintained alternative,
 <img width="400px" src="docs/img/logo.png">
 
 [![Latest Release](https://img.shields.io/github/v/release/grafana/oncall?display_name=tag&sort=semver)](https://github.com/grafana/oncall/releases)
-[![License](https://img.shields.io/github/license/grafana/oncall)](https://github.com/grafana/oncall/blob/dev/LICENSE)
+[![License](https://img.shields.io/github/license/grafana/oncall)](https://github.com/grafana/oncall/blob/main/LICENSE)
 [![Docker Pulls](https://img.shields.io/docker/pulls/grafana/oncall)](https://hub.docker.com/r/grafana/oncall/tags)
 [![Slack](https://img.shields.io/badge/join%20slack-%23grafana-%2Doncall-brightgreen.svg)](https://slack.grafana.com/)
-[![Build Status](https://github.com/grafana/oncall/actions/workflows/on-commits-to-dev.yml/badge.svg)](https://github.com/grafana/oncall/actions/workflows/on-commits-to-dev.yml)
+[![Build Status](https://github.com/grafana/oncall/actions/workflows/build-oncall-engine-docker-image.yml/badge.svg?branch=main)](https://github.com/grafana/oncall/actions/workflows/build-oncall-engine-docker-image.yml?query=branch%3Amain)
 
 Developer-friendly incident response with brilliant Slack integration.
 
@@ -51,7 +51,7 @@ We prepared multiple environments:
 1. Download [`docker-compose.yml`](docker-compose.yml):
 
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/grafana/oncall/dev/docker-compose.yml -o docker-compose.yml
+   curl -fsSL https://raw.githubusercontent.com/grafana/oncall/main/docker-compose.yml -o docker-compose.yml
    ```
 
 2. Set variables:
@@ -160,9 +160,9 @@ Have a question, comment or feedback? Don't be afraid to [open an issue](https:/
 
 ## Further Reading
 
-- _Automated migration from other on-call tools_ - [Migrator](https://github.com/grafana/oncall/tree/dev/tools/migrators)
+- _Automated migration from other on-call tools_ - [Migrator](https://github.com/grafana/oncall/tree/main/tools/migrators)
 - _Documentation_ - [Grafana OnCall](https://grafana.com/docs/oncall/latest/)
 - _Overview Webinar_ - [YouTube](https://www.youtube.com/watch?v=7uSe1pulgs8)
-- _How To Add Integration_ - [How to Add Integration](https://github.com/grafana/oncall/tree/dev/engine/config_integrations/README.md)
+- _How To Add Integration_ - [How to Add Integration](https://github.com/grafana/oncall/tree/main/engine/config_integrations/README.md)
 - _Blog Post_ - [Announcing Grafana OnCall, the easiest way to do on-call management](https://grafana.com/blog/2021/11/09/announcing-grafana-oncall/)
 - _Presentation_ - [Deep dive into the Grafana, Prometheus, and Alertmanager stack for alerting and on-call management](https://grafana.com/go/observabilitycon/2021/alerting/?pg=blog)

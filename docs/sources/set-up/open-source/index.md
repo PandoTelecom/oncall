@@ -39,7 +39,7 @@ This guide describes the necessary installation and configuration steps needed t
 There are three Grafana OnCall OSS environments available:
 
 - **Hobby** playground environment for local usage: [README.md](https://github.com/grafana/oncall#getting-started)
-- **Development** environment for contributors: [development README.md](https://github.com/grafana/oncall/blob/dev/dev/README.md)
+- **Development** environment for contributors: [development README.md](https://github.com/grafana/oncall/blob/main/dev/README.md)
 - **Production** environment for reliable cloud installation using Helm: [Production Environment](#production-environment)
 
 ## Production Environment
@@ -49,7 +49,7 @@ Grafana OnCall engine and celery workers, along with RabbitMQ cluster, Redis Clu
 
 > **Note:** The Grafana OnCall engine currently supports one instance of the Grafana OnCall plugin at a time.
 
-Check the [helm chart](https://github.com/grafana/oncall/tree/dev/helm/oncall) for more details.
+Check the [helm chart](https://github.com/grafana/oncall/tree/main/helm/oncall) for more details.
 
 We'll always be happy to provide assistance with production deployment in [our communities](https://github.com/grafana/oncall#join-community)!
 
@@ -58,7 +58,7 @@ We'll always be happy to provide assistance with production deployment in [our c
 To update an OSS installation of Grafana OnCall, please see the update docs:
 
 - **Hobby** playground environment: [README.md](https://github.com/grafana/oncall#update-version)
-- **Production** Helm environment: [Helm update](https://github.com/grafana/oncall/tree/dev/helm/oncall#update)
+- **Production** Helm environment: [Helm update](https://github.com/grafana/oncall/tree/main/helm/oncall#update)
 
 ## Slack Setup
 

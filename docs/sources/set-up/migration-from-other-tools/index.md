@@ -24,4 +24,4 @@ We currently support automated migration from the following on-call tools:
 - PagerDuty
 - Splunk OnCall (VictorOps)
 
-See our [OSS Migrator](https://github.com/grafana/oncall/tree/dev/tools/migrators) for more details.
+See our [OSS Migrator](https://github.com/grafana/oncall/tree/main/tools/migrators) for more details.
